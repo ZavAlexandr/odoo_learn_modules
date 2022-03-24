@@ -139,9 +139,9 @@
                             <div class="oe_kanban_global_click">
                                 <div class="oe_kanban_details">
                                     <ul>
-                                        <li>Session:<field name="ses_name"/></li>
-                                        <li>Course:<field name="course_id"/></li>
-                                        <li>Start date:<field name="startdate"/></li>
+                                        <li><b>Session:</b><field name="ses_name"/></li>
+                                        <li><b>Course:</b><field name="course_id"/></li>
+                                        <li><b>Start date:</b><field name="startdate"/></li>
                                     </ul>
                                 </div>
                             </div>

@@ -1,0 +1,182 @@
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="open_academy.courses_list">
+            <field name="name">Courses list</field>
+            <field name="model">open_academy.course</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="title"/>
+                    <field name="coursedesc"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="open_academy.courses_search">
+            <field name="name">Courses search</field>
+            <field name="model">open_academy.course</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="title"/>
+                    <field name="coursedesc"/>
+                    <filter name="my_courses" string="Show my Courses"
+                            domain="[('responsible', '=', uid)]"/>
+                    <group string="Group By">
+                        <filter name="group_by_responsible" string="Responsible user"
+                            context="{'group_by': 'responsible'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="open_academy.courses_form">
+            <field name="name">Courses form</field>
+            <field name="model">open_academy.course</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="title"/>
+                            <field name="coursedesc"/>
+                        </group>
+                        <notebook colspan="4">
+                            <page string="Misc">
+                                <group>
+                                    <field name="responsible"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="open_academy.sessions_list">
+            <field name="name">Sessions list</field>
+            <field name="model">open_academy.session</field>
+            <field name="arch" type="xml">
+                <tree decoration-info="(duration&gt;5) and (duration&lt;15)" decoration-success="duration&gt;=15">
+                    <field name="ses_name"/>
+                    <field name="startdate"/>
+                    <field name="duration"/>
+                    <field name="seats"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="open_academy.sessions_form">
+            <field name="name">Sessions form</field>
+            <field name="model">open_academy.session</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button id="bt_create_session_wizard" name="%(open_academy.create_session_wizard)d"
+                                string="Fill session" type="action" class="btn-primary"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="ses_name"/>
+                            <field name="is_active"/>
+                            <field name="seats"/>
+                        </group>
+                        <group>
+                            <field name="startdate"/>
+                            <field name="duration"/>
+                            <field name="enddate"/>
+                        </group>
+                        <group>
+                            <field name="instructor_id" domain="[('instructor', '=', 'True')]"/>
+                            <field name="course_id"/>
+                            <field name="seats_taken_percent" widget="progressbar"/>
+                        </group>
+                        <notebook>
+                            <page string="Attendants">
+                                <field name="attendant_lines_ids">
+                                    <tree editable="bottom">
+                                        <field name="partner_id"/>
+                                        <field name="session_id"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="open_academy.sessions_calendar">
+            <field name="name">open_academy.session.calendar</field>
+            <field name="model">open_academy.session</field>
+            <field name="arch" type="xml">
+                <calendar string="Session calendar" date_start="startdate" date_stop="enddate" color="instructor_id">
+                    <field name="ses_name"/>
+                </calendar>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="open_academy.sessions_graph">
+            <field name="name">open_academy.session.graph</field>
+            <field name="model">open_academy.session</field>
+            <field name="arch" type="xml">
+                <graph string="Course attendants">
+                    <field name="course_id"/>
+                    <field name="seats" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <record id="open_academy.sessions_kanban" model="ir.ui.view">
+            <field name="name">open_academy.session.kanban</field>
+            <field name="model">open_academy.session</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="id"/>
+                    <field name="course_id"/>
+                    <field name="ses_name"/>
+                    <field name="startdate"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+                                <div class="oe_kanban_details">
+                                    <ul>
+                                        <li>Session:<field name="ses_name"/></li>
+                                        <li>Course:<field name="course_id"/></li>
+                                        <li>Start date:<field name="startdate"/></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="open_academy.action_courses">
+            <field name="name">Courses</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">open_academy.course</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="open_academy.action_sessions">
+            <field name="name">Sessions</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">open_academy.session</field>
+            <field name="view_mode">tree,form,graph,calendar,kanban</field>
+        </record>
+
+        <menuitem id="open_academy.menu_root" name="OpenAcademy" sequence="6"/>
+
+        <menuitem id="open_academy.view_courses" name="Courses"
+                  action="open_academy.action_courses" parent="open_academy.menu_root"/>
+
+        <menuitem id="open_academy.view_sessions" name="Sessions"
+                  action="open_academy.action_sessions" parent="open_academy.menu_root"/>
+
+        <menuitem id="open_academy.menu_services" name="Services"
+                  parent="open_academy.menu_root"/>
+        <menuitem id="open_academy.menu_create_session" name="Create session"
+                  action="open_academy.create_session_wizard" parent="open_academy.menu_services"/>
+
+    </data>
+</odoo>

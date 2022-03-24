@@ -1,0 +1,51 @@
+<odoo>
+
+    <record id="open_academy.action_course_list" model="ir.actions.act_window">
+        <field name="name">Courses</field>
+        <field name="res_model">open_academy.course</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record id="open_academy.action_session_calendar" model="ir.actions.act_window">
+        <field name="name">Calendar of session</field>
+        <field name="res_model">open_academy.session</field>
+        <field name="view_mode">calendar</field>
+        <field name="view_id" ref="open_academy.sessions_calendar"/>
+    </record>
+    <record id="open_academy.action_session_graph" model="ir.actions.act_window">
+        <field name="name">Course attendants</field>
+        <field name="res_model">open_academy.session</field>
+        <field name="view_mode">graph</field>
+        <field name="view_id" ref="open_academy.sessions_graph"/>
+    </record>
+
+    <record id="open_academy.dashboard_view" model="ir.ui.view">
+        <field name="name">Dashboard</field>
+        <field name="model">board.board</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Dashboard">
+                <board style="1-1">
+                    <column>
+                        <action name="%(open_academy.action_course_list)d" string="Courses"/>
+                        <action name="%(open_academy.action_session_graph)d" string="Attendants"/>
+                    </column>
+                    <column>
+                        <action name="%(open_academy.action_session_calendar)d" string="Calendar"/>
+                    </column>
+                </board>
+            </form>
+        </field>
+    </record>
+
+    <record id="open_academy_dashboard" model="ir.actions.act_window">
+        <field name="name">Dashboard</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">board.board</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="open_academy.dashboard_view"/>
+    </record>
+
+    <menuitem id="menu_dashboard" name="Dashboard"
+              parent="open_academy.menu_root" action="open_academy_dashboard" sequence="1"/>
+
+</odoo>

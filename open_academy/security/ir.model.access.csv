@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_open_academy_course,open_academy.course,model_open_academy_course,,1,1,1,1
+access_open_academy_session,open_academy.session,model_open_academy_session,,1,1,1,1
+access_open_academy_session_lines,open_academy.session_lines,model_open_academy_session_lines,,1,1,1,1
+open_academy_course_manager,open_academy.course_manager,model_open_academy_course,course_group_manager,1,1,1,1
+access_create_session_wizard,access.create_session_wizard,model_create_session_wizard,,1,1,1,1

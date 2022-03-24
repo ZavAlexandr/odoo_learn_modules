@@ -1,0 +1,31 @@
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="open_academy_wizard_form">
+            <field name="name">create.sessions.wizard.form</field>
+            <field name="model">create.session.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Create new session">
+                    <group>
+                        <field name="session"/>
+                        <field name="attendants"/>
+                    </group>
+                    <footer>
+                        <button string="Do it" name = "action_create_session" class="btn-primary" type="object"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="open_academy.create_session_wizard">
+            <field name="name">Create session</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">create.session.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="open_academy_wizard_form"/>
+            <field name="target">new</field>
+        </record>
+
+    </data>
+</odoo>

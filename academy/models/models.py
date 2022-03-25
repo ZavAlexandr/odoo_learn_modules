@@ -5,25 +5,19 @@ class Teachers(models.Model):
     _name = 'academy.teachers'
     _description = 'Teachers'
 
-    name = fields.Char()
-    biography = fields.Html()
+    name = fields.Char(string="Name")
+    #biography = fields.Html()
+    biography = fields.Char(string="Biography")
+    #course_ids = fields.One2many('academy.courses', 'teacher_id', string="Courses")
+    course_ids = fields.One2many('product.template', 'teacher_id', string="Courses")
 
 
-# -*- coding: utf-8 -*-
+class Courses(models.Model):
+    #_name = 'academy.courses'
+    #_description = 'Courses'
+    #_inherit = 'mail.thread'
+    _inherit = 'product.template'
 
-# from odoo import models, fields, api
+    name = fields.Char(string="Name")
+    teacher_id = fields.Many2one('academy.teachers', string="Teacher")
 
-
-# class academy(models.Model):
-#     _name = 'academy.academy'
-#     _description = 'academy.academy'
-
-#     name = fields.Char()
-#     value = fields.Integer()
-#     value2 = fields.Float(compute="_value_pc", store=True)
-#     description = fields.Text()
-#
-#     @api.depends('value')
-#     def _value_pc(self):
-#         for record in self:
-#             record.value2 = float(record.value) / 100

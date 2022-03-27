@@ -9,6 +9,27 @@ class NPCargoTrackingWizard(models.TransientModel):
     cargo_number = fields.Char('Cargo number')
     track_result = fields.Char('Track result')
 
+    def action_track_cargo(self):
+        title = "Nova poshta tracking"
+        message = self.np_track()
+
+        self.track_result = message
+
+        if message[0] == '#':
+            msg_status = 'danger'
+        else:
+            msg_status = 'success'
+
+        return {
+            'type': 'ir.actions.client',
+            'tag': 'display_notification',
+            'params': {
+                'title': title,
+                'message': message,
+                'sticky': True,
+                'type': msg_status,
+            }
+        }
 
     def np_track(self):
         api_key = '8f21966c593857f27ba4e22aae668910'
@@ -37,7 +58,7 @@ class NPCargoTrackingWizard(models.TransientModel):
                      'WarehouseSender': 'Отделение отправителя',
                      'CityRecipient': 'Город получателя',
                      'WarehouseRecipient': 'Отделение получателя', ''
-                     'Status': 'Статус',
+                                                                   'Status': 'Статус',
                      'ScheduledDeliveryDate': 'Плановая дата доставки',
                      'RecipientDateTime': 'Дата фактического получения'}
 
@@ -62,28 +83,3 @@ class NPCargoTrackingWizard(models.TransientModel):
 
             return np_info
 
-
-    def action_track_cargo(self):
-        title = "Nova poshta tracking"
-        message = self.np_track()
-
-        self.track_result = message
-
-        if message[0] == '#':
-            msg_status = 'danger'
-        else:
-            msg_status = 'success'
-
-        return {
-            'type': 'ir.actions.client',
-            'tag': 'display_notification',
-            'params': {
-                'title': title,
-                'message': message,
-                'sticky': True,
-                'type': msg_status,
-            }
-        }
-
-
-    #cargo_num = '20450498147921'

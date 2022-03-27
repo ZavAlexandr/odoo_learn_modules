@@ -57,8 +57,8 @@ class NPCargoTrackingWizard(models.TransientModel):
                      'CitySender': 'Город отправителя',
                      'WarehouseSender': 'Отделение отправителя',
                      'CityRecipient': 'Город получателя',
-                     'WarehouseRecipient': 'Отделение получателя', ''
-                                                                   'Status': 'Статус',
+                     'WarehouseRecipient': 'Отделение получателя',
+                     'Status': 'Статус',
                      'ScheduledDeliveryDate': 'Плановая дата доставки',
                      'RecipientDateTime': 'Дата фактического получения'}
 

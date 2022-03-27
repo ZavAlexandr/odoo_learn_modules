@@ -112,7 +112,7 @@
             </field>
         </record>
 
-        <menuitem sequence="0" id="menu_academy" name="Academy"/>
+        <menuitem sequence="7" id="menu_academy" name="Academy"/>
         <menuitem id="menu_academy_content" parent="menu_academy"
                   name="Academy Content"/>
         <menuitem id="menu_academy_content_courses"

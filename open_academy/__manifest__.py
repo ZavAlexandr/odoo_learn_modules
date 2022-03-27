@@ -32,6 +32,7 @@
         'views/res_partner_views.xml',
         'views/dashboards.xml',
         'reports/report.xml',
+        'wizards/novaposhta.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

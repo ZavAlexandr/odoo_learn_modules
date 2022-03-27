@@ -1,0 +1,34 @@
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="open_academy.npcargotracking_wizard_form">
+            <field name="name">NPCargoTracking.wizard.form</field>
+            <field name="model">npcargotracking.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Nova poshta cargo tracking">
+                    <group>
+                        <field name="cargo_number"/>
+                        <field name="track_result" readonly="0"/>
+                    </group>
+                    <footer>
+                        <button string="Track" name="action_track_cargo" class="btn-primary" type="object"/>
+                        <button string="Close" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="open_academy.npcargotracking_wizard">
+            <field name="name">Nova poshta cargo tracking</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">npcargotracking.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="open_academy.npcargotracking_wizard_form"/>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="open_academy.menu_npcargotracking" name="Nova poshta cargo tracking"
+                  action="open_academy.npcargotracking_wizard" parent="open_academy.menu_services"/>
+
+    </data>
+</odoo>

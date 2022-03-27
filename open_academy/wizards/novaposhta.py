@@ -65,7 +65,7 @@ class NPCargoTrackingWizard(models.TransientModel):
         res = requests.get(url, headers=headers, data=data)
 
         if res.status_code != 200:
-            return '# Site error code 200!'
+            return '# Site error!'
         else:
             site_json = res.json()
 

@@ -5,7 +5,14 @@
     'author': 'Your name',
     'category': 'Theme/Creative',
 
-    'depends': ['website', 'website_theme_install', 'theme_tutorial'],
+    'depends': ['website'],
     'data': [
+        'views/assets.xml'
     ],
+    'assets': {
+        'web.assets_frontend': [
+            '/theme_tutorial/static/scss/education_frontend.css'
+        ],
+
+    },
 }

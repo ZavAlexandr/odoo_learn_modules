@@ -8,7 +8,7 @@
                 <form string="Nova poshta cargo tracking">
                     <group>
                         <field name="cargo_number"/>
-                        <field name="track_result" readonly="0"/>
+                        <field name="track_result" readonly="1"/>
                     </group>
                     <footer>
                         <button string="Track" name="action_track_cargo" class="btn-primary" type="object"/>

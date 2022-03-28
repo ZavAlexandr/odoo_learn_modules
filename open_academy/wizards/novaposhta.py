@@ -7,7 +7,7 @@ class NPCargoTrackingWizard(models.TransientModel):
     _description = 'Nova Poshta cargo tracking wizard'
 
     cargo_number = fields.Char('Cargo number')
-    track_result = fields.Char('Track result')
+    track_result = fields.Html('Track result')
 
     def action_track_cargo(self):
         title = "Nova poshta tracking"
@@ -79,7 +79,14 @@ class NPCargoTrackingWizard(models.TransientModel):
             for key, value in data_dict.items():
                 show_dict_value = show_dict.get(key)
                 if show_dict_value is not None:
-                    np_info = np_info + show_dict_value + ': ' + value + '\n'
+                    np_info = np_info + '<p><b>' + show_dict_value + '</b>: ' + value + '</p>\n'
 
             return np_info
 
+
+    @api.onchange('cargo_number')
+    def _onchange_cargo_number(self):
+        if not self.cargo_number == False:
+            self.track_result = self.np_track()
+
+    # cargo_num = '20450498147921'

@@ -1,0 +1,20 @@
+<odoo>
+
+    <template id="snippet_testimonial" name="Features">
+        <section class="snippet_testimonial">
+            <div class="container">
+                <div class="row">
+                    <p>Place Your Snippet Content Here</p>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <template id="you_snippet_id" inherit_id="website.snippets" name="Features snippets">
+        <xpath expr="//div[@id='snippet_structure']/div[@class='o_panel_body']" position="inside">
+            <t t-snippet="theme_tutorial.snippet_testimonial"
+               t-thumbnail="/theme_tutorial/static/img/panda.jpg"/>
+        </xpath>
+    </template>
+
+</odoo>

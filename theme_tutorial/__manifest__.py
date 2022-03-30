@@ -10,11 +10,14 @@
         'views/assets.xml',
         'views/pages.xml',
         'views/snippets.xml',
+        'views/options.xml',
     ],
     'assets': {
         'web.assets_frontend': [
-            '/theme_tutorial/static/scss/main.css'
-        ],
-
+            '/theme_tutorial/static/scss/option_style.scss', ],
+        'web._assets_primary_variables': [
+            '/theme_tutorial/static/scss/main.scss', ],
+        'website.assets_editor': [
+            '/theme_tutorial/static/js/options.js', ],
     },
 }

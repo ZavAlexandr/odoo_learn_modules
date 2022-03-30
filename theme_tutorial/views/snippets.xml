@@ -1,10 +1,27 @@
 <odoo>
 
-    <template id="snippet_testimonial" name="Features">
-        <section class="snippet_testimonial">
+    <template id="snippet_testimonial" name="Features (my snippet)">
+        <section class="s_testimonial">
             <div class="container">
                 <div class="row">
                     <p>Place Your Snippet Content Here</p>
+
+                    <div class="col-lg-4 text-center">
+                        <img alt="client" class="rounded-circle" src="/theme_tutorial/static/img/client1.png"/>
+                        <h3>Client Name</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                    <div class="col-lg-4 text-center">
+                        <img alt="client" class="rounded-circle" src="/theme_tutorial/static/img/client2.png"/>
+                        <h3>Client Name</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                    <div class="col-lg-4 text-center">
+                        <img alt="client" class="rounded-circle" src="/theme_tutorial/static/img/client3.png"/>
+                        <h3>Client Name</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+
                 </div>
             </div>
         </section>

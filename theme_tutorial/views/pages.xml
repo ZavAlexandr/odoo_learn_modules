@@ -18,6 +18,13 @@
                                 <li>Unlimited space</li>
                             </ul>
                         </div>
+
+                        <div class="media_iframe_video" data-oe-expression="//www.youtube.com/embed/I8FNdellz3Y" style="width: 60%;">
+                            <div class="css_editable_mode_display"/>
+                            <div class="media_iframe_video_size"/>
+                            <iframe src="//www.youtube.com/embed/I8FNdellz3Y"/>
+                        </div><br/>
+
                         <!-- === Snippets' area === -->
                         <div class="oe_structure" />
                     </div>
@@ -27,9 +34,10 @@
     </record>
 
     <record id="services_page_link" model="website.menu">
-        <field name="name">Services MY</field>
+        <field name="name">MY Services</field>
+        <field name="url">/services</field>
         <field name="page_id" ref="services_page"/>
-        <field name="parent_id" ref="website.main_menu"/>
+        <!--<field name="parent_id" ref="website.main_menu"/>-->
         <field name="sequence" type="int">99</field>
     </record>
 

@@ -1,0 +1,65 @@
+<odoo>
+    <data>
+
+        <record id="my_academy.course_view_list" model="ir.ui.view">
+            <field name="name">Courses list</field>
+            <field name="model">my_academy.course</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="title"/>
+                    <field name="coursedesc"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="my_academy.course_view_search" model="ir.ui.view">
+            <field name="name">Courses search</field>
+            <field name="model">my_academy.course</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="title"/>
+                    <field name="coursedesc"/>
+                    <filter name="my_courses" string="Show my Courses"
+                            domain="[('responsible_id', '=', uid)]"/>
+                    <group string="Group By">
+                        <filter name="group_by_responsible_id" string="Responsible user"
+                            context="{'group_by': 'responsible_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="my_academy.course_view_form" model="ir.ui.view">
+            <field name="name">Courses form</field>
+            <field name="model">my_academy.course</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="title"/>
+                            <field name="coursedesc"/>
+                        </group>
+                        <notebook colspan="4">
+                            <page string="Misc">
+                                <group>
+                                    <field name="responsible_id"/>
+                                </group>
+                            </page>
+                             <page string="Sessions">
+                                <field name="session_ids"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="my_academy.course_action" model="ir.actions.act_window">
+            <field name="name">Courses</field>
+            <field name="res_model">my_academy.course</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>

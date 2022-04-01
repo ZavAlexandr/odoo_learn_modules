@@ -1,0 +1,22 @@
+<odoo>
+    <data>
+
+        <menuitem id="my_academy.menu_root" name="My academy" sequence="5"/>
+
+        <menuitem id="my_academy.view_courses_action" name="Courses"
+                  action="my_academy.course_action" parent="my_academy.menu_root" sequence="2"/>
+
+        <menuitem id="my_academy.view_sessions_action" name="Sessions"
+                  action="my_academy.session_action" parent="my_academy.menu_root" sequence="3"/>
+
+        <menuitem id="my_academy.menu_services" name="Services"
+                  parent="my_academy.menu_root" sequence="4"/>
+
+        <menuitem id="my_academy.menu_create_session_action" name="Create session"
+                  action="my_academy.create_session_wizard_action" parent="my_academy.menu_services"/>
+
+        <menuitem id="my_academy.menu_dashboard_action" name="Dashboard"
+                  action="my_academy.dashboard_action" parent="my_academy.menu_root" sequence="1"/>
+
+    </data>
+</odoo>

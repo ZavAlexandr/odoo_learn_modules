@@ -1,0 +1,6 @@
+<odoo>
+    <record id="my_academy_course_group_manager" model="res.groups">
+        <field name="name">My academy / Manager</field>
+    </record>
+
+</odoo>

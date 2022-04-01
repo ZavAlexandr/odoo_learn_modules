@@ -1,0 +1,18 @@
+<odoo>
+    <data>
+
+        <record id="{EngID}" model="my_academy.course">
+            <field name="title">English</field>
+            <field name="coursedesc">English course</field>
+        </record>
+        <record id="{PHPID}" model="my_academy.course">
+            <field name="title">PHP</field>
+            <field name="coursedesc">PHP course</field>
+        </record>
+        <record id="{PythonID}" model="my_academy.course">
+            <field name="title">Python</field>
+            <field name="coursedesc">Python course</field>
+        </record>
+
+    </data>
+</odoo>

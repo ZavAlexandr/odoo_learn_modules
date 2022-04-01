@@ -1,0 +1,48 @@
+<odoo>
+
+    <record id="my_academy.action_course_list_action" model="ir.actions.act_window">
+        <field name="name">Courses</field>
+        <field name="res_model">my_academy.course</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record id="my_academy.action_session_calendar_action" model="ir.actions.act_window">
+        <field name="name">Calendar of session</field>
+        <field name="res_model">my_academy.session</field>
+        <field name="view_mode">calendar</field>
+        <field name="view_id" ref="my_academy.session_view_calendar"/>
+    </record>
+    <record id="my_academy.action_session_graph_action" model="ir.actions.act_window">
+        <field name="name">Course attendants</field>
+        <field name="res_model">my_academy.session</field>
+        <field name="view_mode">graph</field>
+        <field name="view_id" ref="my_academy.session_view_graph"/>
+    </record>
+
+    <record id="my_academy.dashboard_view" model="ir.ui.view">
+        <field name="name">Dashboard</field>
+        <field name="model">board.board</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Dashboard">
+                <board style="1-1">
+                    <column>
+                        <action name="%(my_academy.action_course_list_action)d" string="Courses"/>
+                        <action name="%(my_academy.action_session_graph_action)d" string="Attendants"/>
+                    </column>
+                    <column>
+                        <action name="%(my_academy.action_session_calendar_action)d" string="Calendar"/>
+                    </column>
+                </board>
+            </form>
+        </field>
+    </record>
+
+    <record id="my_academy.dashboard_action" model="ir.actions.act_window">
+        <field name="name">Dashboard</field>
+        <field name="res_model">board.board</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="my_academy.dashboard_view"/>
+    </record>
+
+</odoo>

@@ -1,0 +1,16 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="my_academy.view_partner_form">
+            <field name="name">my_academy.view_partner_form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='company_type']" position="before">
+                    <group>
+                        <field name="course_instructor" title="Is course instructor" string="Is course instructor"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

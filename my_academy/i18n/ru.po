@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-01 09:27+0000\n"
-"PO-Revision-Date: 2022-04-01 09:41+0000\n"
+"POT-Creation-Date: 2022-04-01 14:17+0000\n"
+"PO-Revision-Date: 2022-04-01 14:22+0000\n"
 "Last-Translator: \n"
 "Language-Team: Unknown\n"
 "Language: zxx\n"
@@ -11,7 +11,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"X-Loco-Source-Locale: uk_UA\n"
+"X-Loco-Source-Locale: en_UA\n"
 "X-Loco-Parser: loco_parse_po\n"
 "X-Generator: Loco https://localise.biz/"
 
@@ -36,33 +36,33 @@ msgid "<b>Start date:</b>"
 msgstr "<b>Дата начала:</b>"
 
 #. module: my_academy
-#: code:addons/my_academy/models/my_academy_session.py:0 
+#: code:addons/my_academy/models/session.py:0 
 #: model:ir.model.fields,field_description:my_academy.field_my_academy_session__is_active
 #, python-format
 msgid "Active"
 msgstr "Активно"
 
 #. module: my_academy
-#: code:addons/my_academy/models/my_academy_session.py:0
+#: code:addons/my_academy/models/session.py:0
 #, python-format
 msgid "All seats taken!"
 msgstr "Все места заняты!"
 
 #. module: my_academy
-#: code:addons/my_academy/models/my_academy_session_lines.py:0 
+#: code:addons/my_academy/models/session_lines.py:0 
 #: model:ir.model.fields,field_description:my_academy.field_my_academy_session_lines__partner_id
 #, python-format
 msgid "Attendant"
 msgstr "Участник"
 
 #. module: my_academy
-#: code:addons/my_academy/models/my_academy_session.py:0
+#: code:addons/my_academy/models/session.py:0
 #, python-format
 msgid "Attendant cannot be the same as instructor!"
 msgstr "Участник не может быть инструктором!"
 
 #. module: my_academy
-#: code:addons/my_academy/models/my_academy_session.py:0 
+#: code:addons/my_academy/models/session.py:0 
 #: code:addons/my_academy/wizards/create_session.py:0 
 #: model:ir.model.fields,field_description:my_academy.field_my_academy_create_session_wizard__attendants
 #:  
@@ -94,13 +94,13 @@ msgid "Contact"
 msgstr "Контакт"
 
 #. module: my_academy
-#: code:addons/my_academy/models/my_academy_course.py:0
+#: code:addons/my_academy/models/course.py:0
 #, python-format
 msgid "Copy of "
 msgstr "Копия "
 
 #. module: my_academy
-#: code:addons/my_academy/models/my_academy_session.py:0 
+#: code:addons/my_academy/models/session.py:0 
 #: model:ir.model.fields,field_description:my_academy.field_my_academy_session__course_id
 #, python-format
 msgid "Course"
@@ -177,7 +177,7 @@ msgid "Dashboard"
 msgstr "Инфо-панель"
 
 #. module: my_academy
-#: code:addons/my_academy/models/my_academy_course.py:0 
+#: code:addons/my_academy/models/course.py:0 
 #: model:ir.model.fields,field_description:my_academy.field_my_academy_course__coursedesc
 #, python-format
 msgid "Description"
@@ -200,22 +200,22 @@ msgid "Do it"
 msgstr "Выполнить"
 
 #. module: my_academy
-#: code:addons/my_academy/models/my_academy_session.py:0 
+#: code:addons/my_academy/models/session.py:0 
 #: model:ir.model.fields,field_description:my_academy.field_my_academy_session__duration
 #, python-format
 msgid "Duration"
 msgstr "Продолжительность"
 
 #. module: my_academy
-#: code:addons/my_academy/models/my_academy_session.py:0 
+#: code:addons/my_academy/models/session.py:0 
 #: model:ir.model.fields,field_description:my_academy.field_my_academy_session__enddate
 #, python-format
 msgid "End Date"
 msgstr "Дата окончания"
 
 #. module: my_academy
-#: code:addons/my_academy/models/my_academy_session.py:0 
-#: code:addons/my_academy/models/my_academy_session.py:0
+#: code:addons/my_academy/models/session.py:0 
+#: code:addons/my_academy/models/session.py:0
 #, python-format
 msgid "Error"
 msgstr "Ошибка"
@@ -247,7 +247,7 @@ msgid "ID"
 msgstr "ID"
 
 #. module: my_academy
-#: code:addons/my_academy/models/my_academy_session.py:0 
+#: code:addons/my_academy/models/session.py:0 
 #: model:ir.model.fields,field_description:my_academy.field_my_academy_session__instructor_id
 #, python-format
 msgid "Instructor"
@@ -307,35 +307,35 @@ msgid "My academy / Manager"
 msgstr "Моя академия / Менеджер"
 
 #. module: my_academy
-#: code:addons/my_academy/models/my_academy_session.py:0 
+#: code:addons/my_academy/models/session.py:0 
 #: model:ir.model.fields,field_description:my_academy.field_my_academy_session__seats
 #, python-format
 msgid "Number of seats"
 msgstr "Количество мест"
 
 #. module: my_academy
-#: code:addons/my_academy/models/my_academy_course.py:0 
+#: code:addons/my_academy/models/course.py:0 
 #: model:ir.model,name:my_academy.model_my_academy_course
 #, python-format
 msgid "Our courses"
 msgstr "Наши курсы"
 
 #. module: my_academy
-#: code:addons/my_academy/models/my_academy_session.py:0 
+#: code:addons/my_academy/models/session.py:0 
 #: model:ir.model,name:my_academy.model_my_academy_session
 #, python-format
 msgid "Our sessions"
 msgstr "Наши сессии"
 
 #. module: my_academy
-#: code:addons/my_academy/models/my_academy_session_lines.py:0 
+#: code:addons/my_academy/models/session_lines.py:0 
 #: model:ir.model,name:my_academy.model_my_academy_session_lines
 #, python-format
 msgid "Our sessions lines"
 msgstr "Участники наших курсов"
 
 #. module: my_academy
-#: code:addons/my_academy/models/my_academy_course.py:0 
+#: code:addons/my_academy/models/course.py:0 
 #: model:ir.model.fields,field_description:my_academy.field_my_academy_course__responsible_id
 #:  model_terms:ir.ui.view,arch_db:my_academy.course_view_search
 #, python-format
@@ -343,13 +343,13 @@ msgid "Responsible user"
 msgstr "Ответственный"
 
 #. module: my_academy
-#: code:addons/my_academy/models/my_academy_session.py:0
+#: code:addons/my_academy/models/session.py:0
 #, python-format
 msgid "Seats cannot be negative!"
 msgstr "Количество мест не может быть меньше нуля!"
 
 #. module: my_academy
-#: code:addons/my_academy/models/my_academy_session.py:0 
+#: code:addons/my_academy/models/session.py:0 
 #: model:ir.model.fields,field_description:my_academy.field_my_academy_session__seats_taken_percent
 #, python-format
 msgid "Seats taken %"
@@ -361,7 +361,7 @@ msgid "Services"
 msgstr "Сервисы"
 
 #. module: my_academy
-#: code:addons/my_academy/models/my_academy_course.py:0 
+#: code:addons/my_academy/models/course.py:0 
 #: code:addons/my_academy/wizards/create_session.py:0 
 #: model:ir.model.fields,field_description:my_academy.field_my_academy_course__session_ids
 #:  
@@ -371,7 +371,7 @@ msgid "Session"
 msgstr "Сессия"
 
 #. module: my_academy
-#: code:addons/my_academy/models/my_academy_session_lines.py:0 
+#: code:addons/my_academy/models/session_lines.py:0 
 #: model:ir.model.fields,field_description:my_academy.field_my_academy_session_lines__session_id
 #, python-format
 msgid "Session ID"
@@ -383,7 +383,7 @@ msgid "Session calendar"
 msgstr "Календарь сессий"
 
 #. module: my_academy
-#: code:addons/my_academy/models/my_academy_session.py:0 
+#: code:addons/my_academy/models/session.py:0 
 #: model:ir.model.fields,field_description:my_academy.field_my_academy_session__ses_name
 #, python-format
 msgid "Session name"
@@ -407,28 +407,28 @@ msgid "Show my Courses"
 msgstr "Показать мои Курсы"
 
 #. module: my_academy
-#: code:addons/my_academy/models/my_academy_session.py:0 
+#: code:addons/my_academy/models/session.py:0 
 #: model:ir.model.fields,field_description:my_academy.field_my_academy_session__startdate
 #, python-format
 msgid "Start date"
 msgstr "Дата начала"
 
 #. module: my_academy
-#: code:addons/my_academy/models/my_academy_course.py:0 
+#: code:addons/my_academy/models/course.py:0 
 #: model:ir.model.fields,field_description:my_academy.field_my_academy_course__title
 #, python-format
 msgid "Title"
 msgstr "Название"
 
 #. module: my_academy
-#: code:addons/my_academy/models/my_academy_course.py:0 
+#: code:addons/my_academy/models/course.py:0 
 #: model:ir.model.constraint,message:my_academy.constraint_my_academy_course_check_NameDescription
 #, python-format
 msgid "Title must not equal description! Error!"
 msgstr "Название не должно быть равно описанию! Ошибка!"
 
 #. module: my_academy
-#: code:addons/my_academy/models/my_academy_course.py:0 
+#: code:addons/my_academy/models/course.py:0 
 #: model:ir.model.constraint,message:my_academy.constraint_my_academy_course_check_Name
 #, python-format
 msgid "Title of the course must be unique! Error!"

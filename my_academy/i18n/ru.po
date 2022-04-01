@@ -1,0 +1,440 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-04-01 09:27+0000\n"
+"PO-Revision-Date: 2022-04-01 09:41+0000\n"
+"Last-Translator: \n"
+"Language-Team: Unknown\n"
+"Language: zxx\n"
+"Plural-Forms: nplurals=2; plural=n!=1;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"X-Loco-Source-Locale: uk_UA\n"
+"X-Loco-Parser: loco_parse_po\n"
+"X-Generator: Loco https://localise.biz/"
+
+#. module: my_academy
+#: model_terms:ir.ui.view,arch_db:my_academy.session_report_view
+msgid "<b>Attendants:</b>"
+msgstr "<b>Участники:</b>"
+
+#. module: my_academy
+#: model_terms:ir.ui.view,arch_db:my_academy.session_view_kanban
+msgid "<b>Course:</b>"
+msgstr "<b>Курс:</b>"
+
+#. module: my_academy
+#: model_terms:ir.ui.view,arch_db:my_academy.session_view_kanban
+msgid "<b>Session:</b>"
+msgstr "<b>Сессия:</b>"
+
+#. module: my_academy
+#: model_terms:ir.ui.view,arch_db:my_academy.session_view_kanban
+msgid "<b>Start date:</b>"
+msgstr "<b>Дата начала:</b>"
+
+#. module: my_academy
+#: code:addons/my_academy/models/my_academy_session.py:0 
+#: model:ir.model.fields,field_description:my_academy.field_my_academy_session__is_active
+#, python-format
+msgid "Active"
+msgstr "Активно"
+
+#. module: my_academy
+#: code:addons/my_academy/models/my_academy_session.py:0
+#, python-format
+msgid "All seats taken!"
+msgstr "Все места заняты!"
+
+#. module: my_academy
+#: code:addons/my_academy/models/my_academy_session_lines.py:0 
+#: model:ir.model.fields,field_description:my_academy.field_my_academy_session_lines__partner_id
+#, python-format
+msgid "Attendant"
+msgstr "Участник"
+
+#. module: my_academy
+#: code:addons/my_academy/models/my_academy_session.py:0
+#, python-format
+msgid "Attendant cannot be the same as instructor!"
+msgstr "Участник не может быть инструктором!"
+
+#. module: my_academy
+#: code:addons/my_academy/models/my_academy_session.py:0 
+#: code:addons/my_academy/wizards/create_session.py:0 
+#: model:ir.model.fields,field_description:my_academy.field_my_academy_create_session_wizard__attendants
+#:  
+#: model:ir.model.fields,field_description:my_academy.field_my_academy_session__attendant_lines_ids
+#:  model_terms:ir.ui.view,arch_db:my_academy.dashboard_view 
+#: model_terms:ir.ui.view,arch_db:my_academy.session_view_form
+#, python-format
+msgid "Attendants"
+msgstr "Участники"
+
+#. module: my_academy
+#: model_terms:ir.ui.view,arch_db:my_academy.dashboard_view
+msgid "Calendar"
+msgstr "Календарь"
+
+#. module: my_academy
+#: model:ir.actions.act_window,name:my_academy.action_session_calendar_action
+msgid "Calendar of session"
+msgstr "Календарь сессий"
+
+#. module: my_academy
+#: model_terms:ir.ui.view,arch_db:my_academy.create_sessions_wizard_form
+msgid "Cancel"
+msgstr "Отменить"
+
+#. module: my_academy
+#: model:ir.model,name:my_academy.model_res_partner
+msgid "Contact"
+msgstr "Контакт"
+
+#. module: my_academy
+#: code:addons/my_academy/models/my_academy_course.py:0
+#, python-format
+msgid "Copy of "
+msgstr "Копия "
+
+#. module: my_academy
+#: code:addons/my_academy/models/my_academy_session.py:0 
+#: model:ir.model.fields,field_description:my_academy.field_my_academy_session__course_id
+#, python-format
+msgid "Course"
+msgstr "Курс"
+
+#. module: my_academy
+#: model:ir.actions.act_window,name:my_academy.action_session_graph_action 
+#: model_terms:ir.ui.view,arch_db:my_academy.session_view_graph
+msgid "Course attendants"
+msgstr "Участники курса"
+
+#. module: my_academy
+#: code:addons/my_academy/models/res_partner.py:0 
+#: model:ir.model.fields,field_description:my_academy.field_res_partner__course_instructor
+#:  
+#: model:ir.model.fields,field_description:my_academy.field_res_users__course_instructor
+#, python-format
+msgid "Course instructor"
+msgstr "Инструктор курсов"
+
+#. module: my_academy
+#: model:ir.actions.act_window,name:my_academy.action_course_list_action 
+#: model:ir.actions.act_window,name:my_academy.course_action 
+#: model:ir.ui.menu,name:my_academy.view_courses_action 
+#: model_terms:ir.ui.view,arch_db:my_academy.dashboard_view
+msgid "Courses"
+msgstr "Курсы"
+
+#. module: my_academy
+#: model_terms:ir.ui.view,arch_db:my_academy.create_sessions_wizard_form
+msgid "Create new session"
+msgstr "Создать новую сессию"
+
+#. module: my_academy
+#: model:ir.actions.act_window,name:my_academy.create_session_wizard_action 
+#: model:ir.ui.menu,name:my_academy.menu_create_session_action
+msgid "Create session"
+msgstr "Создать сессию"
+
+#. module: my_academy
+#: code:addons/my_academy/wizards/create_session.py:0 
+#: model:ir.model,name:my_academy.model_my_academy_create_session_wizard
+#, python-format
+msgid "Create session wizard"
+msgstr "Помощник создания сессий"
+
+#. module: my_academy
+#: model:ir.model.fields,field_description:my_academy.field_my_academy_course__create_uid
+#:  
+#: model:ir.model.fields,field_description:my_academy.field_my_academy_create_session_wizard__create_uid
+#:  
+#: model:ir.model.fields,field_description:my_academy.field_my_academy_session__create_uid
+#:  
+#: model:ir.model.fields,field_description:my_academy.field_my_academy_session_lines__create_uid
+msgid "Created by"
+msgstr "Кем создан"
+
+#. module: my_academy
+#: model:ir.model.fields,field_description:my_academy.field_my_academy_course__create_date
+#:  
+#: model:ir.model.fields,field_description:my_academy.field_my_academy_create_session_wizard__create_date
+#:  
+#: model:ir.model.fields,field_description:my_academy.field_my_academy_session__create_date
+#:  
+#: model:ir.model.fields,field_description:my_academy.field_my_academy_session_lines__create_date
+msgid "Created on"
+msgstr "Когда создан"
+
+#. module: my_academy
+#: model:ir.actions.act_window,name:my_academy.dashboard_action 
+#: model:ir.ui.menu,name:my_academy.menu_dashboard_action 
+#: model_terms:ir.ui.view,arch_db:my_academy.dashboard_view
+msgid "Dashboard"
+msgstr "Инфо-панель"
+
+#. module: my_academy
+#: code:addons/my_academy/models/my_academy_course.py:0 
+#: model:ir.model.fields,field_description:my_academy.field_my_academy_course__coursedesc
+#, python-format
+msgid "Description"
+msgstr "Описание"
+
+#. module: my_academy
+#: model:ir.model.fields,field_description:my_academy.field_my_academy_course__display_name
+#:  
+#: model:ir.model.fields,field_description:my_academy.field_my_academy_create_session_wizard__display_name
+#:  
+#: model:ir.model.fields,field_description:my_academy.field_my_academy_session__display_name
+#:  
+#: model:ir.model.fields,field_description:my_academy.field_my_academy_session_lines__display_name
+msgid "Display Name"
+msgstr "Отображаемое имя"
+
+#. module: my_academy
+#: model_terms:ir.ui.view,arch_db:my_academy.create_sessions_wizard_form
+msgid "Do it"
+msgstr "Выполнить"
+
+#. module: my_academy
+#: code:addons/my_academy/models/my_academy_session.py:0 
+#: model:ir.model.fields,field_description:my_academy.field_my_academy_session__duration
+#, python-format
+msgid "Duration"
+msgstr "Продолжительность"
+
+#. module: my_academy
+#: code:addons/my_academy/models/my_academy_session.py:0 
+#: model:ir.model.fields,field_description:my_academy.field_my_academy_session__enddate
+#, python-format
+msgid "End Date"
+msgstr "Дата окончания"
+
+#. module: my_academy
+#: code:addons/my_academy/models/my_academy_session.py:0 
+#: code:addons/my_academy/models/my_academy_session.py:0
+#, python-format
+msgid "Error"
+msgstr "Ошибка"
+
+#. module: my_academy
+#: model_terms:ir.ui.view,arch_db:my_academy.session_view_form
+msgid "Fill session"
+msgstr "Заполнить сессию"
+
+#. module: my_academy
+#: model_terms:ir.ui.view,arch_db:my_academy.session_report_view
+msgid "From"
+msgstr "C"
+
+#. module: my_academy
+#: model_terms:ir.ui.view,arch_db:my_academy.course_view_search
+msgid "Group By"
+msgstr "Группировать по"
+
+#. module: my_academy
+#: model:ir.model.fields,field_description:my_academy.field_my_academy_course__id
+#:  
+#: model:ir.model.fields,field_description:my_academy.field_my_academy_create_session_wizard__id
+#:  
+#: model:ir.model.fields,field_description:my_academy.field_my_academy_session__id
+#:  
+#: model:ir.model.fields,field_description:my_academy.field_my_academy_session_lines__id
+msgid "ID"
+msgstr "ID"
+
+#. module: my_academy
+#: code:addons/my_academy/models/my_academy_session.py:0 
+#: model:ir.model.fields,field_description:my_academy.field_my_academy_session__instructor_id
+#, python-format
+msgid "Instructor"
+msgstr "Инструктор"
+
+#. module: my_academy
+#: model_terms:ir.ui.view,arch_db:my_academy.view_partner_form
+msgid "Is course instructor"
+msgstr "Это инструктор курсов"
+
+#. module: my_academy
+#: model:ir.model.fields,field_description:my_academy.field_my_academy_course____last_update
+#:  
+#: model:ir.model.fields,field_description:my_academy.field_my_academy_create_session_wizard____last_update
+#:  
+#: model:ir.model.fields,field_description:my_academy.field_my_academy_session____last_update
+#:  
+#: model:ir.model.fields,field_description:my_academy.field_my_academy_session_lines____last_update
+msgid "Last Modified on"
+msgstr "Когда изменен"
+
+#. module: my_academy
+#: model:ir.model.fields,field_description:my_academy.field_my_academy_course__write_uid
+#:  
+#: model:ir.model.fields,field_description:my_academy.field_my_academy_create_session_wizard__write_uid
+#:  
+#: model:ir.model.fields,field_description:my_academy.field_my_academy_session__write_uid
+#:  
+#: model:ir.model.fields,field_description:my_academy.field_my_academy_session_lines__write_uid
+msgid "Last Updated by"
+msgstr "Кем изменен"
+
+#. module: my_academy
+#: model:ir.model.fields,field_description:my_academy.field_my_academy_course__write_date
+#:  
+#: model:ir.model.fields,field_description:my_academy.field_my_academy_create_session_wizard__write_date
+#:  
+#: model:ir.model.fields,field_description:my_academy.field_my_academy_session__write_date
+#:  
+#: model:ir.model.fields,field_description:my_academy.field_my_academy_session_lines__write_date
+msgid "Last Updated on"
+msgstr "Когда обновлен"
+
+#. module: my_academy
+#: model_terms:ir.ui.view,arch_db:my_academy.course_view_form
+msgid "Misc"
+msgstr "Прочее"
+
+#. module: my_academy
+#: model:ir.ui.menu,name:my_academy.menu_root
+msgid "My academy"
+msgstr "Моя академия"
+
+#. module: my_academy
+#: model:res.groups,name:my_academy.my_academy_course_group_manager
+msgid "My academy / Manager"
+msgstr "Моя академия / Менеджер"
+
+#. module: my_academy
+#: code:addons/my_academy/models/my_academy_session.py:0 
+#: model:ir.model.fields,field_description:my_academy.field_my_academy_session__seats
+#, python-format
+msgid "Number of seats"
+msgstr "Количество мест"
+
+#. module: my_academy
+#: code:addons/my_academy/models/my_academy_course.py:0 
+#: model:ir.model,name:my_academy.model_my_academy_course
+#, python-format
+msgid "Our courses"
+msgstr "Наши курсы"
+
+#. module: my_academy
+#: code:addons/my_academy/models/my_academy_session.py:0 
+#: model:ir.model,name:my_academy.model_my_academy_session
+#, python-format
+msgid "Our sessions"
+msgstr "Наши сессии"
+
+#. module: my_academy
+#: code:addons/my_academy/models/my_academy_session_lines.py:0 
+#: model:ir.model,name:my_academy.model_my_academy_session_lines
+#, python-format
+msgid "Our sessions lines"
+msgstr "Участники наших курсов"
+
+#. module: my_academy
+#: code:addons/my_academy/models/my_academy_course.py:0 
+#: model:ir.model.fields,field_description:my_academy.field_my_academy_course__responsible_id
+#:  model_terms:ir.ui.view,arch_db:my_academy.course_view_search
+#, python-format
+msgid "Responsible user"
+msgstr "Ответственный"
+
+#. module: my_academy
+#: code:addons/my_academy/models/my_academy_session.py:0
+#, python-format
+msgid "Seats cannot be negative!"
+msgstr "Количество мест не может быть меньше нуля!"
+
+#. module: my_academy
+#: code:addons/my_academy/models/my_academy_session.py:0 
+#: model:ir.model.fields,field_description:my_academy.field_my_academy_session__seats_taken_percent
+#, python-format
+msgid "Seats taken %"
+msgstr "Занято мест, %"
+
+#. module: my_academy
+#: model:ir.ui.menu,name:my_academy.menu_services
+msgid "Services"
+msgstr "Сервисы"
+
+#. module: my_academy
+#: code:addons/my_academy/models/my_academy_course.py:0 
+#: code:addons/my_academy/wizards/create_session.py:0 
+#: model:ir.model.fields,field_description:my_academy.field_my_academy_course__session_ids
+#:  
+#: model:ir.model.fields,field_description:my_academy.field_my_academy_create_session_wizard__session
+#, python-format
+msgid "Session"
+msgstr "Сессия"
+
+#. module: my_academy
+#: code:addons/my_academy/models/my_academy_session_lines.py:0 
+#: model:ir.model.fields,field_description:my_academy.field_my_academy_session_lines__session_id
+#, python-format
+msgid "Session ID"
+msgstr "ID сессии"
+
+#. module: my_academy
+#: model_terms:ir.ui.view,arch_db:my_academy.session_view_calendar
+msgid "Session calendar"
+msgstr "Календарь сессий"
+
+#. module: my_academy
+#: code:addons/my_academy/models/my_academy_session.py:0 
+#: model:ir.model.fields,field_description:my_academy.field_my_academy_session__ses_name
+#, python-format
+msgid "Session name"
+msgstr "Название сессии"
+
+#. module: my_academy
+#: model:ir.actions.report,name:my_academy.session_report
+msgid "Session report"
+msgstr "Отчет по сессии"
+
+#. module: my_academy
+#: model:ir.actions.act_window,name:my_academy.session_action 
+#: model:ir.ui.menu,name:my_academy.view_sessions_action 
+#: model_terms:ir.ui.view,arch_db:my_academy.course_view_form
+msgid "Sessions"
+msgstr "Сессии"
+
+#. module: my_academy
+#: model_terms:ir.ui.view,arch_db:my_academy.course_view_search
+msgid "Show my Courses"
+msgstr "Показать мои Курсы"
+
+#. module: my_academy
+#: code:addons/my_academy/models/my_academy_session.py:0 
+#: model:ir.model.fields,field_description:my_academy.field_my_academy_session__startdate
+#, python-format
+msgid "Start date"
+msgstr "Дата начала"
+
+#. module: my_academy
+#: code:addons/my_academy/models/my_academy_course.py:0 
+#: model:ir.model.fields,field_description:my_academy.field_my_academy_course__title
+#, python-format
+msgid "Title"
+msgstr "Название"
+
+#. module: my_academy
+#: code:addons/my_academy/models/my_academy_course.py:0 
+#: model:ir.model.constraint,message:my_academy.constraint_my_academy_course_check_NameDescription
+#, python-format
+msgid "Title must not equal description! Error!"
+msgstr "Название не должно быть равно описанию! Ошибка!"
+
+#. module: my_academy
+#: code:addons/my_academy/models/my_academy_course.py:0 
+#: model:ir.model.constraint,message:my_academy.constraint_my_academy_course_check_Name
+#, python-format
+msgid "Title of the course must be unique! Error!"
+msgstr "Название курсы должно быть уникальным! Ошибка!"
+
+#. module: my_academy
+#: model_terms:ir.ui.view,arch_db:my_academy.session_report_view
+msgid "to"
+msgstr "по"

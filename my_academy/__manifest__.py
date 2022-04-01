@@ -35,7 +35,8 @@
         'views/res_partner_views.xml',
         'views/my_academy_dashboards.xml',
         'views/my_academy_menus.xml',
-        'report/my_academy_report.xml',
+        'report/session_report.xml',
+        'report/session_template.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

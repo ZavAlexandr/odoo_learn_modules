@@ -6,9 +6,9 @@
                         <div class="page">
                             <h1 t-field="doc.ses_name"/>
                             <p>From
-                                <span t-field="doc.startdate"/>
+                                <span t-field="doc.start_date"/>
                                 to
-                                <span t-field="doc.enddate"/>
+                                <span t-field="doc.end_date"/>
                             </p>
                             <b>Attendants:</b>
                             <ul>

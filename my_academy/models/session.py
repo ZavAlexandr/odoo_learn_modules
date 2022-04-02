@@ -1,5 +1,5 @@
-from odoo import models, fields, api, _
 from datetime import date, timedelta
+from odoo import api, fields, models, _
 from odoo.exceptions import ValidationError
 
 
@@ -7,9 +7,10 @@ class Session(models.Model):
     _name = 'my_academy.session'
     _description = _('Our sessions')
     _rec_name = 'ses_name'
+    _inherit = ['mail.thread']
 
     ses_name = fields.Char(_('Session name'))
-    startdate = fields.Date(string=_('Start date'), default=date.today())
+    start_date = fields.Date(string=_('Start date'), default=date.today())
     duration = fields.Integer(_('Duration'))
     seats = fields.Integer(_('Number of seats'))
     instructor_id = fields.Many2one(comodel_name='res.partner', string=_('Instructor'))
@@ -17,12 +18,12 @@ class Session(models.Model):
                                 string=_('Course'), required=True)
     # attendant_lines_ids = fields.Many2many('my_academy.session.lines', string=_('Attendants'))
     attendant_lines_ids = fields.One2many('my_academy.session.lines', 'session_id', string=_('Attendants'))
-    seats_taken_percent = fields.Float(string=_('Seats taken %'), compute='_compute_seatstaken')
-    enddate = fields.Date(string=_('End Date'), compute='_compute_enddate', store=True)
+    seats_taken_percent = fields.Float(string=_('Seats taken %'), compute='_compute_seats_taken_percent')
+    end_date = fields.Date(string=_('End Date'), compute='_compute_end_date', store=True)
     is_active = fields.Boolean(string=_("Active"), default=True)
 
     @api.depends('seats', 'attendant_lines_ids')
-    def _compute_seatstaken(self):
+    def _compute_seats_taken_percent(self):
         for record in self:
             if record.seats == 0:
                 record.seats_taken_percent = 0
@@ -31,6 +32,14 @@ class Session(models.Model):
                 for i in record.attendant_lines_ids:
                     count += 1
                 record.seats_taken_percent = count / record.seats * 100
+
+    @api.depends('start_date', 'duration')
+    def _compute_end_date(self):
+        for rec in self:
+            if not rec.duration:
+                rec.end_date = rec.start_date
+            else:
+                rec.end_date = rec.start_date + timedelta(days=rec.duration)
 
     @api.onchange('seats')
     def _onchange_seats(self):
@@ -60,11 +69,3 @@ class Session(models.Model):
             for line in record.attendant_lines_ids:
                 if record.instructor_id == line.partner_id:
                     raise ValidationError(_("Attendant cannot be the same as instructor!"))
-
-    @api.depends('startdate', 'duration')
-    def _compute_enddate(self):
-        for rec in self:
-            if not rec.duration:
-                rec.enddate = rec.startdate
-            else:
-                rec.enddate = rec.startdate + timedelta(days=rec.duration)

@@ -7,7 +7,7 @@
             <field name="arch" type="xml">
                 <tree>
                     <field name="title"/>
-                    <field name="coursedesc"/>
+                    <field name="course_desc"/>
                 </tree>
             </field>
         </record>
@@ -18,7 +18,7 @@
             <field name="arch" type="xml">
                 <search>
                     <field name="title"/>
-                    <field name="coursedesc"/>
+                    <field name="course_desc"/>
                     <filter name="my_courses" string="Show my Courses"
                             domain="[('responsible_id', '=', uid)]"/>
                     <group string="Group By">
@@ -37,7 +37,7 @@
                     <sheet>
                         <group>
                             <field name="title"/>
-                            <field name="coursedesc"/>
+                            <field name="course_desc"/>
                         </group>
                         <notebook colspan="4">
                             <page string="Misc">

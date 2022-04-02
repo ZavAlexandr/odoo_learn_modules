@@ -84,9 +84,9 @@ class Session(models.Model):
     def _compute_enddate(self):
         for rec in self:
             if not rec.duration:
-                rec.enddate = rec.startdate
+                rec.end_date = rec.start_date
             else:
-                rec.enddate = rec.startdate + timedelta(days=rec.duration)
+                rec.end_date = rec.start_date + timedelta(days=rec.duration)
 
 
 class SessionLines(models.Model):

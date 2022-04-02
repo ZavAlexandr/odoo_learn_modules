@@ -7,8 +7,8 @@
             <field name="arch" type="xml">
                 <form string="Create new session">
                     <group>
-                        <field name="session"/>
-                        <field name="attendants"/>
+                        <field name="session_ids"/>
+                        <field name="attendants_ids"/>
                     </group>
                     <footer>
                         <button string="Do it" name = "action_create_session" class="btn-primary" type="object"/>

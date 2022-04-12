@@ -44,7 +44,8 @@
                 <form>
                     <sheet>
                         <div class="oe_button_box" name="button_box">
-                            <button name="%(board_rent.rent_order_action)d" type="action"
+                            <!--<button name="%(board_rent.rent_order_action)d" type="action" -->
+                            <button name="open_orders_action" type="object"
                                     class="oe_stat_button" icon="fa-calendar">
                                 <div class="o_stat_info">
                                     <field name="rent_count" class="o_stat_value"/>
@@ -65,7 +66,9 @@
                                         <field name="region_id"/>
                                         <field name="price"/>
                                     </group>
-                                    <field name="comments" string="Comments"/>
+                                    <group>
+                                        <field name="comments" string="Comments"/>
+                                    </group>
                                 </group>
                             </page>
                             <page string="Photo" name="Photo">

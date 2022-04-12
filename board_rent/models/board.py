@@ -30,3 +30,14 @@ class Board(models.Model):
     def _compute_rent_count(self):
         for rec in self:
             rec.rent_count = self.env['board_rent.rent_order'].search_count([('board_id', '=', rec.id)])
+
+    def open_orders_action(self):
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Rent orders for board',
+            'res_model': 'board_rent.rent_order',
+            'domain': [('board_id', '=', self.id)],
+            'context': {'default_board_id': self.id},
+            'view_mode': 'tree,form',
+            'target': 'current',
+        }

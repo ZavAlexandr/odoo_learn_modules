@@ -1,0 +1,45 @@
+<odoo>
+    <data>
+
+        <record id="board_rent.board_region_view_list" model="ir.ui.view">
+            <field name="name">Board regions</field>
+            <field name="model">board_rent.board_region</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="title"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="board_rent.board_region_search" model="ir.ui.view">
+            <field name="name">Board regions</field>
+            <field name="model">board_rent.board_region</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="title"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="board_rent.board_region_view_form" model="ir.ui.view">
+            <field name="name">Board regions</field>
+            <field name="model">board_rent.board_region</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="title"/>
+                        <field name="id" readonly="1"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="board_rent.board_region_action" model="ir.actions.act_window">
+            <field name="name">Board regions</field>
+            <field name="res_model">board_rent.board_region</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,41 @@
+<odoo>
+    <data>
+
+        <menuitem id="board_rent.menu_root" name="Board rent" sequence="5"/>
+
+        <menuitem id="board_rent.menu_references" name="References"
+                  parent="board_rent.menu_root"
+                  sequence="1"/>
+
+        <menuitem id="board_rent.menu_board" name="Boards"
+                  action="board_rent.board_action"
+                  parent="board_rent.menu_references"
+                  sequence="1"/>
+
+        <menuitem id="board_rent.menu_board_category" name="Categories"
+                  action="board_rent.board_category_action"
+                  parent="board_rent.menu_references"
+                  sequence="2"/>
+
+        <menuitem id="board_rent.menu_board_region" name="Regions"
+                  action="board_rent.board_region_action"
+                  parent="board_rent.menu_references"
+                  sequence="3"/>
+
+        <menuitem id="board_rent.menu_board_type" name="Types"
+                  action="board_rent.board_type_action"
+                  parent="board_rent.menu_references"
+                  sequence="4"/>
+
+        <menuitem id="board_rent.menu_board_operation" name="Operations"
+                  action="board_rent.board_operation_action"
+                  parent="board_rent.menu_references"
+                  sequence="5"/>
+
+        <menuitem id="board_rent.rent_order" name="Rent order"
+                  action="board_rent.rent_order_action"
+                  parent="board_rent.menu_root"
+                  sequence="2"/>
+
+    </data>
+</odoo>

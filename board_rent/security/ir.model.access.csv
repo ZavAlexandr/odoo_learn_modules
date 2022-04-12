@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_board_rent_board,board_rent.board,model_board_rent_board,,1,1,1,1
+access_board_rent_board_type,board_rent.board_type,model_board_rent_board_type,,1,1,1,1
+access_board_rent_board_region,board_rent.board_region,model_board_rent_board_region,,1,1,1,1
+access_board_rent_board_category,board_rent.board_category,model_board_rent_board_category,,1,1,1,1
+access_board_rent_board_operation,board_rent.board_operation,model_board_rent_board_operation,,1,1,1,1
+access_board_rent_board_rent_order,board_rent.rent_order,model_board_rent_rent_order,,1,1,1,1
+access_board_rent_board_rent_order_works,board_rent.rent_order_works,model_board_rent_rent_order_works,,1,1,1,1

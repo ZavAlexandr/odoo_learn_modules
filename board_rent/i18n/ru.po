@@ -1,0 +1,651 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-04-12 14:16+0000\n"
+"PO-Revision-Date: 2022-04-12 14:25+0000\n"
+"Last-Translator: \n"
+"Language-Team: Unknown\n"
+"Language: zxx\n"
+"Plural-Forms: nplurals=2; plural=n!=1;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"X-Loco-Source-Locale: en_UA\n"
+"X-Loco-Parser: loco_parse_po\n"
+"X-Generator: Loco https://localise.biz/"
+
+#. module: board_rent
+#: model_terms:ir.ui.view,arch_db:board_rent.board_view_form
+msgid "<span class=\"o_stat_text\">Orders</span>"
+msgstr "Заказы"
+
+#. module: board_rent
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_rent_order__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: board_rent
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_rent_order__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: board_rent
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_rent_order__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: board_rent
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_rent_order__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: board_rent
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_rent_order__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: board_rent
+#: code:addons/board_rent/models/rent_order_works.py:0 
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_rent_order_works__amount
+#, python-format
+msgid "Amount"
+msgstr "Количество"
+
+#. module: board_rent
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_rent_order__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: board_rent
+#: code:addons/board_rent/models/rent_order.py:0 
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_rent_order__board_id
+#:  model_terms:ir.ui.view,arch_db:board_rent.rent_order_search
+#, python-format
+msgid "Board"
+msgstr "Рекламоноситель"
+
+#. module: board_rent
+#: code:addons/board_rent/models/board_category.py:0 
+#: model:ir.actions.act_window,name:board_rent.board_category_action 
+#: model:ir.model,name:board_rent.model_board_rent_board_category
+#, python-format
+msgid "Board categories"
+msgstr "Категории рекламоносителей"
+
+#. module: board_rent
+#: model_terms:ir.ui.view,arch_db:board_rent.board_view_form
+msgid "Board data"
+msgstr "Данные по рекламоносителю"
+
+#. module: board_rent
+#: code:addons/board_rent/models/board_operation.py:0 
+#: model:ir.actions.act_window,name:board_rent.board_operation_action 
+#: model:ir.model,name:board_rent.model_board_rent_board_operation
+#, python-format
+msgid "Board operations"
+msgstr "Операции по рекламоносителям"
+
+#. module: board_rent
+#: code:addons/board_rent/models/board.py:0 
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_board__photo
+#, python-format
+msgid "Board photo"
+msgstr "Фото рекламоносителя"
+
+#. module: board_rent
+#: code:addons/board_rent/models/board_region.py:0 
+#: model:ir.actions.act_window,name:board_rent.board_region_action 
+#: model:ir.model,name:board_rent.model_board_rent_board_region
+#, python-format
+msgid "Board regions"
+msgstr "Районы размещения"
+
+#. module: board_rent
+#: model:ir.ui.menu,name:board_rent.menu_root
+msgid "Board rent"
+msgstr "Аренда рекламоносителей"
+
+#. module: board_rent
+#: code:addons/board_rent/models/board_type.py:0 
+#: model:ir.actions.act_window,name:board_rent.board_type_action 
+#: model:ir.model,name:board_rent.model_board_rent_board_type
+#, python-format
+msgid "Board types"
+msgstr "Типы рекламоносителей"
+
+#. module: board_rent
+#: code:addons/board_rent/models/board.py:0 
+#: model:ir.actions.act_window,name:board_rent.board_action 
+#: model:ir.model,name:board_rent.model_board_rent_board 
+#: model:ir.ui.menu,name:board_rent.menu_board
+#, python-format
+msgid "Boards"
+msgstr "Рекламоносители"
+
+#. module: board_rent
+#: model:ir.model.fields.selection,name:board_rent.selection__board_rent_rent_order__state__cancel
+msgid "Cancelled"
+msgstr "Отменен"
+
+#. module: board_rent
+#: model:ir.ui.menu,name:board_rent.menu_board_category
+msgid "Categories"
+msgstr "Категории"
+
+#. module: board_rent
+#: code:addons/board_rent/models/rent_order.py:0 
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_rent_order__category_id
+#, python-format
+msgid "Category"
+msgstr "Категория"
+
+#. module: board_rent
+#: code:addons/board_rent/models/rent_order.py:0 
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_rent_order__client_id
+#:  model_terms:ir.ui.view,arch_db:board_rent.rent_order_search
+#, python-format
+msgid "Client"
+msgstr "Клиент"
+
+#. module: board_rent
+#: code:addons/board_rent/models/board.py:0 
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_board__comments
+#:  model_terms:ir.ui.view,arch_db:board_rent.board_view_form
+#, python-format
+msgid "Comments"
+msgstr "Комментарии"
+
+#. module: board_rent
+#: model:ir.model.fields.selection,name:board_rent.selection__board_rent_rent_order__state__confirm
+msgid "Confirmed"
+msgstr "Подтвержден"
+
+#. module: board_rent
+#: model_terms:ir.actions.act_window,help:board_rent.rent_order_action
+msgid "Create new document"
+msgstr "Создать новый документ"
+
+#. module: board_rent
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_board__create_uid
+#:  
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_board_category__create_uid
+#:  
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_board_operation__create_uid
+#:  
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_board_region__create_uid
+#:  
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_board_type__create_uid
+#:  
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_rent_order__create_uid
+#:  
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_rent_order_works__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: board_rent
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_board__create_date
+#:  
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_board_category__create_date
+#:  
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_board_operation__create_date
+#:  
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_board_region__create_date
+#:  
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_board_type__create_date
+#:  
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_rent_order__create_date
+#:  
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_rent_order_works__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: board_rent
+#: code:addons/board_rent/models/rent_order_works.py:0 
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_rent_order_works__description
+#, python-format
+msgid "Description"
+msgstr "Описание"
+
+#. module: board_rent
+#: code:addons/board_rent/models/rent_order.py:0 
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_rent_order__discount_percent
+#, python-format
+msgid "Discount %"
+msgstr "Скидка %"
+
+#. module: board_rent
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_board__display_name
+#:  
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_board_category__display_name
+#:  
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_board_operation__display_name
+#:  
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_board_region__display_name
+#:  
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_board_type__display_name
+#:  
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_rent_order__display_name
+#:  
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_rent_order_works__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: board_rent
+#: code:addons/board_rent/models/rent_order.py:0 
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_rent_order__doc_date
+#, python-format
+msgid "Document date"
+msgstr "Дата документа"
+
+#. module: board_rent
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_rent_order__name
+msgid "Document number"
+msgstr "№ документа"
+
+#. module: board_rent
+#: model:ir.model.fields.selection,name:board_rent.selection__board_rent_rent_order__state__done
+msgid "Done"
+msgstr "Выполнен"
+
+#. module: board_rent
+#: model:ir.model.fields.selection,name:board_rent.selection__board_rent_rent_order__state__draft
+msgid "Draft"
+msgstr "Черновик"
+
+#. module: board_rent
+#: code:addons/board_rent/models/rent_order.py:0 
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_rent_order__end_date
+#, python-format
+msgid "End date"
+msgstr "Дата окончания"
+
+#. module: board_rent
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_rent_order__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: board_rent
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_rent_order__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: board_rent
+#: model:ir.model.fields,help:board_rent.field_board_rent_rent_order__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: board_rent
+#: model_terms:ir.ui.view,arch_db:board_rent.board_search 
+#: model_terms:ir.ui.view,arch_db:board_rent.rent_order_search
+msgid "Group By"
+msgstr "Группировать по"
+
+#. module: board_rent
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_rent_order__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: board_rent
+#: model_terms:ir.ui.view,arch_db:board_rent.board_search
+msgid "Has price"
+msgstr "С ценой"
+
+#. module: board_rent
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_board__id
+#:  
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_board_category__id
+#:  
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_board_operation__id
+#:  
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_board_region__id
+#:  
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_board_type__id
+#:  
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_rent_order__id
+#:  
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_rent_order_works__id
+msgid "ID"
+msgstr ""
+
+#. module: board_rent
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_rent_order__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: board_rent
+#: model:ir.model.fields,help:board_rent.field_board_rent_rent_order__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: board_rent
+#: model:ir.model.fields,help:board_rent.field_board_rent_rent_order__message_needaction
+#:  
+#: model:ir.model.fields,help:board_rent.field_board_rent_rent_order__message_unread
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: board_rent
+#: model:ir.model.fields,help:board_rent.field_board_rent_rent_order__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: board_rent
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_rent_order__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: board_rent
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_board____last_update
+#:  
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_board_category____last_update
+#:  
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_board_operation____last_update
+#:  
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_board_region____last_update
+#:  
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_board_type____last_update
+#:  
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_rent_order____last_update
+#:  
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_rent_order_works____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: board_rent
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_board__write_uid
+#:  
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_board_category__write_uid
+#:  
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_board_operation__write_uid
+#:  
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_board_region__write_uid
+#:  
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_board_type__write_uid
+#:  
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_rent_order__write_uid
+#:  
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_rent_order_works__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: board_rent
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_board__write_date
+#:  
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_board_category__write_date
+#:  
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_board_operation__write_date
+#:  
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_board_region__write_date
+#:  
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_board_type__write_date
+#:  
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_rent_order__write_date
+#:  
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_rent_order_works__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: board_rent
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_rent_order__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: board_rent
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_rent_order__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: board_rent
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_rent_order__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: board_rent
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_rent_order__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: board_rent
+#: code:addons/board_rent/models/rent_order.py:0 
+#: code:addons/board_rent/models/rent_order.py:0 
+#: code:addons/board_rent/models/rent_order.py:0
+#, python-format
+msgid "New"
+msgstr "Новый"
+
+#. module: board_rent
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_rent_order__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr ""
+
+#. module: board_rent
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_rent_order__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: board_rent
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_rent_order__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: board_rent
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_rent_order__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: board_rent
+#: model_terms:ir.ui.view,arch_db:board_rent.board_search
+msgid "No price"
+msgstr "Без цены"
+
+#. module: board_rent
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_rent_order__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: board_rent
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_rent_order__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: board_rent
+#: model:ir.model.fields,help:board_rent.field_board_rent_rent_order__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr ""
+
+#. module: board_rent
+#: model:ir.model.fields,help:board_rent.field_board_rent_rent_order__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: board_rent
+#: model:ir.model.fields,help:board_rent.field_board_rent_rent_order__message_unread_counter
+msgid "Number of unread messages"
+msgstr ""
+
+#. module: board_rent
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_rent_order_works__operation_id
+msgid "Operation"
+msgstr "Операция"
+
+#. module: board_rent
+#: model:ir.ui.menu,name:board_rent.menu_board_operation
+msgid "Operations"
+msgstr "Операции"
+
+#. module: board_rent
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_rent_order_works__order_id
+msgid "Order ID"
+msgstr ""
+
+#. module: board_rent
+#: model_terms:ir.ui.view,arch_db:board_rent.board_view_form
+msgid "Photo"
+msgstr "Фото"
+
+#. module: board_rent
+#: code:addons/board_rent/models/rent_order.py:0 
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_rent_order__photo
+#:  model_terms:ir.ui.view,arch_db:board_rent.rent_order_view_form
+#, python-format
+msgid "Photo report"
+msgstr "Фото отчет"
+
+#. module: board_rent
+#: code:addons/board_rent/models/board.py:0 
+#: code:addons/board_rent/models/board_operation.py:0 
+#: code:addons/board_rent/models/rent_order.py:0 
+#: code:addons/board_rent/models/rent_order_works.py:0 
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_board__price
+#:  
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_board_operation__price
+#:  
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_rent_order__price
+#:  
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_rent_order_works__price
+#, python-format
+msgid "Price"
+msgstr "Цена"
+
+#. module: board_rent
+#: model:ir.ui.menu,name:board_rent.menu_references
+msgid "References"
+msgstr "Справочники"
+
+#. module: board_rent
+#: code:addons/board_rent/models/board.py:0 
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_board__region_id
+#:  model_terms:ir.ui.view,arch_db:board_rent.board_search
+#, python-format
+msgid "Region"
+msgstr "Район"
+
+#. module: board_rent
+#: model:ir.ui.menu,name:board_rent.menu_board_region
+msgid "Regions"
+msgstr "Районы"
+
+#. module: board_rent
+#: model_terms:ir.ui.view,arch_db:board_rent.rent_order_view_calendar
+msgid "Rent calendar"
+msgstr "Календарь аренды"
+
+#. module: board_rent
+#: code:addons/board_rent/models/board.py:0 
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_board__rent_count
+#, python-format
+msgid "Rent count"
+msgstr "Количество аренды"
+
+#. module: board_rent
+#: code:addons/board_rent/models/rent_order.py:0 
+#: model:ir.actions.act_window,name:board_rent.rent_order_action 
+#: model:ir.model,name:board_rent.model_board_rent_rent_order 
+#: model:ir.ui.menu,name:board_rent.rent_order
+#, python-format
+msgid "Rent order"
+msgstr "Заказ на аренду"
+
+#. module: board_rent
+#: model:ir.model,name:board_rent.model_board_rent_rent_order_works
+msgid "Rent order works"
+msgstr "Операции по аренде рекламоносителя"
+
+#. module: board_rent
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_rent_order__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: board_rent
+#: code:addons/board_rent/models/board.py:0 
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_board__sides
+#, python-format
+msgid "Sides"
+msgstr "Количество сторон"
+
+#. module: board_rent
+#: code:addons/board_rent/models/rent_order.py:0 
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_rent_order__start_date
+#, python-format
+msgid "Start date"
+msgstr "Дата начала"
+
+#. module: board_rent
+#: code:addons/board_rent/models/rent_order.py:0 
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_rent_order__state
+#, python-format
+msgid "Status"
+msgstr "Статус"
+
+#. module: board_rent
+#: model:ir.model.fields,help:board_rent.field_board_rent_rent_order__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: board_rent
+#: code:addons/board_rent/models/rent_order.py:0 
+#: code:addons/board_rent/models/rent_order_works.py:0 
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_rent_order__sum
+#:  
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_rent_order_works__sum
+#, python-format
+msgid "Sum"
+msgstr "Сумма"
+
+#. module: board_rent
+#: code:addons/board_rent/models/board.py:0 
+#: code:addons/board_rent/models/board_category.py:0 
+#: code:addons/board_rent/models/board_operation.py:0 
+#: code:addons/board_rent/models/board_region.py:0 
+#: code:addons/board_rent/models/board_type.py:0 
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_board__title
+#:  
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_board_category__title
+#:  
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_board_operation__title
+#:  
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_board_region__title
+#:  
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_board_type__title
+#, python-format
+msgid "Title"
+msgstr "Название"
+
+#. module: board_rent
+#: code:addons/board_rent/models/board.py:0 
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_board__type_id
+#:  model_terms:ir.ui.view,arch_db:board_rent.board_search
+#, python-format
+msgid "Type"
+msgstr "Тип"
+
+#. module: board_rent
+#: model:ir.model.fields,help:board_rent.field_board_rent_rent_order__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: board_rent
+#: model:ir.ui.menu,name:board_rent.menu_board_type
+msgid "Types"
+msgstr "Типы"
+
+#. module: board_rent
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_rent_order__message_unread
+msgid "Unread Messages"
+msgstr ""
+
+#. module: board_rent
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_rent_order__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr ""
+
+#. module: board_rent
+#: model:ir.model.fields,field_description:board_rent.field_board_rent_rent_order__works_ids
+#:  model_terms:ir.ui.view,arch_db:board_rent.rent_order_view_form
+msgid "Works"
+msgstr "Работы"

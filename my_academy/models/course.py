@@ -15,8 +15,8 @@ class Course(models.Model):
     _sql_constraints = [
           ('check_NameDescription', 'check(title != coursedesc)',
            _("Title must not equal description! Error!")),
-          ('check_Name','unique(title)',
-           _("Title of the course must be unique! Error!")),]
+          ('check_Name', 'unique(title)',
+           _("Title of the course must be unique! Error!")), ]
 
     def copy(self, default={}):
         default['title'] = _('Copy of ') + self.title

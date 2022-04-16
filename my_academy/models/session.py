@@ -17,8 +17,10 @@ class Session(models.Model):
     course_id = fields.Many2one(comodel_name='my_academy.course', inverse_name='session_ids',
                                 string=_('Course'), required=True)
     # attendant_lines_ids = fields.Many2many('my_academy.session.lines', string=_('Attendants'))
-    attendant_lines_ids = fields.One2many('my_academy.session.lines', 'session_id', string=_('Attendants'))
-    seats_taken_percent = fields.Float(string=_('Seats taken %'), compute='_compute_seats_taken_percent')
+    attendant_lines_ids = fields.One2many('my_academy.session.lines', 'session_id',
+                                          string=_('Attendants'))
+    seats_taken_percent = fields.Float(string=_('Seats taken %'),
+                                       compute='_compute_seats_taken_percent')
     end_date = fields.Date(string=_('End Date'), compute='_compute_end_date', store=True)
     is_active = fields.Boolean(string=_("Active"), default=True)
 

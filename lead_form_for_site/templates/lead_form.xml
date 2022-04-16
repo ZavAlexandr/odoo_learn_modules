@@ -1,0 +1,28 @@
+<odoo>
+    <data>
+
+        <template id="lead_form" name="Lead form">
+
+            <form action="/add_new_lead" class="generated-form" method="POST" target="_self">
+                <fieldset>
+                    <legend>Contact data:</legend>
+                    <label for="client_name">Name:</label><br/>
+                    <input id="client_name" name="client_name" type="text"/><br/>
+
+                    <label for="client_email">Email:</label><br/>
+                    <input id="client_email" name="client_email" type="text"/><br/>
+
+                    <label for="client_phone">Phone:</label><br/>
+                    <input id="client_phone" name="client_phone" type="text"/><br/>
+
+                    <label for="subject">Subject:</label><br/>
+                    <input id="subject" name="subject" type="text"/><br/>
+
+                    <input type="submit" value="Submit"/>
+                </fieldset>
+            </form>
+
+        </template>
+
+    </data>
+</odoo>

@@ -1,2 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_lead_form_for_site_lead_form_for_site,lead_form_for_site.lead_form_for_site,model_lead_form_for_site_lead_form_for_site,base.group_user,1,1,1,1

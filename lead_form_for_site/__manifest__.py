@@ -4,15 +4,15 @@
     'sequence': -90,
 
     'summary': """
-        Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
+        Get leads from site form
+        """,
 
     'description': """
-        Long description of module's purpose
+        Get leads from site form
     """,
 
     'author': "ZavAlex",
-    'website': "http://www.yourcompany.com",
+    'website': "http://bonsens.com.ua",
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/15.0/odoo/addons/base/data/ir_module_category_data.xml
@@ -25,13 +25,6 @@
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
-        'views/views.xml',
-        'views/templates.xml',
         'templates/lead_form.xml',
-    ],
-    # only loaded in demonstration mode
-    'demo': [
-        'demo/demo.xml',
     ],
 }

@@ -13,15 +13,15 @@
                         <legend>Contact data:</legend>
                         <label for="client_name">Name:</label>
                         <br/>
-                        <input id="client_name" name="client_name" type="text" class="form-control form-control-sm"/>
+                        <input id="client_name" name="client_name" type="text" class="form-control form-control-sm" required="required"/>
 
                         <label for="client_email">Email:</label>
                         <br/>
-                        <input id="client_email" name="client_email" type="text" class="form-control form-control-sm"/>
+                        <input id="client_email" name="client_email" type="text" class="form-control form-control-sm" required="required"/>
 
                         <label for="client_phone">Phone:</label>
                         <br/>
-                        <input id="client_phone" name="client_phone" type="text" class="form-control form-control-sm"/>
+                        <input id="client_phone" name="client_phone" type="text" class="form-control form-control-sm" required="required"/>
 
                         <label for="subject">Subject:</label>
                         <br/>

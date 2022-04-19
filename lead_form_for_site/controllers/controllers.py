@@ -3,22 +3,22 @@ from odoo.http import request
 
 
 class LeadFormSiteController(http.Controller):
+
     @http.route('/get_lead_form', auth='public', method=['GET'])
     @http.route('/<string:lang>/get_lead_form', auth='public', method=['GET'])
     def get_lead_form(self, **kw):
-        response = http.request.render('lead_form_for_site.lead_form', {})
-        return response
+        lang = kw.get('lang')
+        if lang is None:
+            lang_template = 'lead_form'
+        else:
+            if lang == 'ru':
+                lang_template = 'lead_form_ru'
+            elif lang == 'ua':
+                lang_template = 'lead_form_ua'
+            else:
+                lang_template = 'lead_form'
 
-    @http.route('/get_lead_form_ru', auth='public', method=['GET'])
-    @http.route('/<string:lang>/get_lead_form_ru', auth='public', method=['GET'])
-    def get_lead_form_ru(self, **kw):
-        response = http.request.render('lead_form_for_site.lead_form_ru', {})
-        return response
-
-    @http.route('/get_lead_form_ua', auth='public', method=['GET'])
-    @http.route('/<string:lang>/get_lead_form_ua', auth='public', method=['GET'])
-    def get_lead_form_ua(self, **kw):
-        response = http.request.render('lead_form_for_site.lead_form_ua', {})
+        response = http.request.render('lead_form_for_site.' + lang_template, {})
         return response
 
     @http.route('/add_new_lead', auth='public', method=['POST'], csrf=False)
@@ -59,4 +59,3 @@ class LeadFormSiteController(http.Controller):
 
         response = http.request.render(template, {})
         return response
-

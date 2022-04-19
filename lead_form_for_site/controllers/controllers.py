@@ -4,6 +4,7 @@ from odoo.http import request
 
 class LeadFormSiteController(http.Controller):
     @http.route('/get_lead_form', auth='public', method=['GET'])
+    @http.route('/<string:lang>/get_lead_form', auth='public', method=['GET'])
     def get_lead_form(self, **kw):
         response = http.request.render('lead_form_for_site.lead_form', {})
         return response

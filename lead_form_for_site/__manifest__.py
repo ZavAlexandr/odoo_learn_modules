@@ -26,5 +26,10 @@
     # always loaded
     'data': [
         'templates/lead_form.xml',
+        'templates/lead_form_ru.xml',
+        'templates/lead_form_ua.xml',
+        'templates/message.xml',
+        'templates/message_ru.xml',
+        'templates/message_ua.xml',
     ],
 }

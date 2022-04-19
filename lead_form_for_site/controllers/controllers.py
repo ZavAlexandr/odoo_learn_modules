@@ -9,11 +9,13 @@ class LeadFormSiteController(http.Controller):
         return response
 
     @http.route('/get_lead_form_ru', auth='public', method=['GET'])
+    @http.route('/<string:lang>/get_lead_form_ru', auth='public', method=['GET'])
     def get_lead_form_ru(self, **kw):
         response = http.request.render('lead_form_for_site.lead_form_ru', {})
         return response
 
     @http.route('/get_lead_form_ua', auth='public', method=['GET'])
+    @http.route('/<string:lang>/get_lead_form_ua', auth='public', method=['GET'])
     def get_lead_form_ua(self, **kw):
         response = http.request.render('lead_form_for_site.lead_form_ua', {})
         return response

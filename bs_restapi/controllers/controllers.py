@@ -5,9 +5,19 @@ from odoo.http import request, Response
 from odoo.tools import date_utils
 
 
-def get_json_response(code, message):
+def get_json_error_response(code, message):
     output = {
-        'results': {
+        'error': {
+            'code': code,
+            'message': message
+        }
+    }
+    return output
+
+
+def get_json_ok_response(code, message):
+    output = {
+        'ok': {
             'code': code,
             'message': message
         }
@@ -18,31 +28,40 @@ def get_json_response(code, message):
 def check_apikey(req_apikey):
 
     if not req_apikey:
-        output = get_json_response(501, 'No API key')
+        output = get_json_error_response(501, 'No API key in request')
         return json.dumps(output)
 
     params = request.env["ir.config_parameter"]
     app_apikey = params.get_bs_apikey()
 
     if req_apikey != app_apikey:
-        output = get_json_response(502, 'Wrong API key')
+        output = get_json_error_response(502, 'Wrong API key')
         return json.dumps(output)
 
     return True
 
 
-def get_contact_data(all_data):
+def correct_field_data(var):
+    if not var:
+        var = ''
+
+    return var
+
+
+def get_contact_data(records):
     data_list = []
 
-    for rec in all_data:
+    for rec in records:
         data = dict()
         data['id'] = rec.id
-        data['parent_id'] = rec.parent_id.id
+        data['parent_id'] = correct_field_data(rec.parent_id.id)
         data['company_type'] = rec.company_type
         data['name'] = rec.name
-        data['email'] = rec.email
-        data['phone'] = rec.phone
-        data['vat'] = rec.vat
+        data['comment'] = correct_field_data(rec.comment).strip()
+        data['email'] = correct_field_data(rec.email)
+        data['phone'] = correct_field_data(rec.phone)
+        data['vat'] = correct_field_data(rec.vat)
+        data['write_date'] = rec.write_date
         data_list.append(data)
 
     json_data = json.dumps(data_list, default=date_utils.json_default)
@@ -85,7 +104,7 @@ class bs_rest_api(http.Controller):
             return res
 
         new_rec = {}
-        fields_list = ['name', 'company_type', 'email', 'phone', 'vat']
+        fields_list = ['name', 'company_type', 'email', 'phone', 'vat', 'comment']
         for fld in fields_list:
             val = kw.get(fld)
             if not val:
@@ -97,7 +116,7 @@ class bs_rest_api(http.Controller):
 
         created_id = request.env['res.partner'].sudo().create(new_rec)
 
-        output = get_json_response(200, created_id.id)
+        output = get_json_error_response(200, created_id.id)
         return json.dumps(output)
 
     @http.route('/api/update_contact/<int:partner_id>', auth='public', method=['GET'], csrf=False)
@@ -109,11 +128,11 @@ class bs_rest_api(http.Controller):
 
         data = request.env['res.partner'].sudo().search([('id', '=', partner_id)])
         if not data:
-            output = get_json_response(503, 'No contact for ID: ' + str(partner_id))
+            output = get_json_error_response(503, 'No contact for ID: ' + str(partner_id))
             return json.dumps(output)
 
         edit_rec = {}
-        fields_list = ['name', 'company_type', 'email', 'phone', 'vat']
+        fields_list = ['name', 'company_type', 'email', 'phone', 'vat', 'comment']
         for fld in fields_list:
             val = kw.get(fld)
             if val:
@@ -122,7 +141,7 @@ class bs_rest_api(http.Controller):
         is_updated = data.sudo().write(edit_rec)
 
         if is_updated:
-            output = get_json_response(200, 'Record updated for ID: ' + str(partner_id))
+            output = get_json_ok_response(200, 'Record updated for res.partner with ID: ' + str(partner_id))
         else:
-            output = get_json_response(504, 'Error updating record for ID: ' + str(partner_id))
+            output = get_json_error_response(504, 'Error updating record for ID: ' + str(partner_id))
         return json.dumps(output)

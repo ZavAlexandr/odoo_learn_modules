@@ -68,6 +68,20 @@ def get_contact_data(records):
     return Response(json_data, 200)
 
 
+def get_language(req_lang):
+    lang = 'uk_UA'
+
+    if req_lang:
+        if req_lang.lower() == 'ru':
+            lang = 'ru_RU'
+        elif req_lang.lower() == 'ua':
+            lang = 'uk_UA'
+        else:
+            lang = 'en_US'
+
+    return lang
+
+
 class bs_rest_api(http.Controller):
 
     @http.route('/api/get_contacts', auth='public', method=['GET'], csrf=False)
@@ -145,3 +159,102 @@ class bs_rest_api(http.Controller):
         else:
             output = get_json_error_response(504, 'Error updating record for ID: ' + str(partner_id))
         return json.dumps(output)
+
+    @http.route('/api/get_crm_stages', auth='public', method=['GET'], csrf=False)
+    def get_crm_stages(self, **kw):
+        req_apikey = kw.get('apikey')
+        res = check_apikey(req_apikey)
+        if isinstance(res, str):
+            return res
+
+        lang = get_language(kw.get('lang'))
+        data_list = []
+
+        all_data = request.env['crm.stage'].sudo().with_context(lang=lang).search([])
+        for rec in all_data:
+            data = dict()
+            data['id'] = rec.id
+            data['name'] = rec.name
+            data['is_won'] = rec.is_won
+            data['write_date'] = rec.write_date
+            data_list.append(data)
+
+        json_data = json.dumps(data_list, default=date_utils.json_default)
+        return Response(json_data, 200)
+
+    @http.route('/api/get_odoo_users', auth='public', method=['GET'], csrf=False)
+    def get_odoo_users(self, **kw):
+        req_apikey = kw.get('apikey')
+        res = check_apikey(req_apikey)
+        if isinstance(res, str):
+            return res
+
+        data_list = []
+
+        all_data = request.env['res.users'].sudo().search([])
+        for rec in all_data:
+            data = dict()
+            data['id'] = rec.id
+            data['name'] = rec.name
+            data['write_date'] = rec.write_date
+            data_list.append(data)
+
+        json_data = json.dumps(data_list, default=date_utils.json_default)
+        return Response(json_data, 200)
+
+    @http.route('/api/get_utm_sources', auth='public', method=['GET'], csrf=False)
+    def get_users(self, **kw):
+        req_apikey = kw.get('apikey')
+        res = check_apikey(req_apikey)
+        if isinstance(res, str):
+            return res
+
+        lang = get_language(kw.get('lang'))
+        data_list = []
+
+        all_data = request.env['utm.source'].sudo().with_context(lang=lang).search([])
+        for rec in all_data:
+            data = dict()
+            data['id'] = rec.id
+            data['name'] = rec.name
+            data['write_date'] = rec.write_date
+            data_list.append(data)
+
+        json_data = json.dumps(data_list, default=date_utils.json_default)
+        return Response(json_data, 200)
+
+    @http.route('/api/get_leads', auth='public', method=['GET'], csrf=False)
+    def get_leads(self, **kw):
+        req_apikey = kw.get('apikey')
+        res = check_apikey(req_apikey)
+        if isinstance(res, str):
+            return res
+
+        lang = get_language(kw.get('lang'))
+        data_list = []
+
+        stage = kw.get('stage')
+        if stage:
+            domain = [
+                ('stage_id', '=', int(stage)),
+                ('type', '=', 'opportunity'),
+            ]
+            all_data = request.env['crm.lead'].sudo().with_context(lang=lang).search(domain)
+        else:
+            all_data = request.env['crm.lead'].sudo().with_context(lang=lang).search([('type', '=', 'opportunity')])
+
+        for rec in all_data:
+            data = dict()
+            data['id'] = rec.id
+            data['partner_id'] = rec.partner_id.id
+            data['name'] = rec.name
+            data['expected_revenue'] = rec.expected_revenue
+            data['description'] = rec.description
+            data['source_id'] = rec.source_id.id
+            data['stage_id'] = rec.stage_id.id
+            data['user_id'] = rec.user_id.id
+            data['write_date'] = rec.write_date
+            data_list.append(data)
+
+        json_data = json.dumps(data_list, default=date_utils.json_default)
+        return Response(json_data, 200)

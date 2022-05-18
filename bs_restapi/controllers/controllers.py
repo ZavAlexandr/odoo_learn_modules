@@ -170,7 +170,7 @@ class bs_rest_api(http.Controller):
         lang = get_language(kw.get('lang'))
         data_list = []
 
-        all_data = request.env['crm.stage'].sudo().with_context(lang=lang).search([])
+        all_data = request.env['crm.stage'].sudo().with_context(lang=lang).search([], order='sequence asc')
         for rec in all_data:
             data = dict()
             data['id'] = rec.id
@@ -230,29 +230,35 @@ class bs_rest_api(http.Controller):
         if isinstance(res, str):
             return res
 
-        lang = get_language(kw.get('lang'))
         data_list = []
+
+        domain = [
+            ('type', '=', 'opportunity'),
+        ]
+
+        write_date = kw.get('write_date')
+        if write_date:
+            date_time_obj = datetime.strptime(write_date, '%d.%m.%Y')
+            domain += [('write_date', '>=', date_time_obj)]
 
         stage = kw.get('stage')
         if stage:
-            domain = [
-                ('stage_id', '=', int(stage)),
-                ('type', '=', 'opportunity'),
-            ]
-            all_data = request.env['crm.lead'].sudo().with_context(lang=lang).search(domain)
-        else:
-            all_data = request.env['crm.lead'].sudo().with_context(lang=lang).search([('type', '=', 'opportunity')])
+            domain += [('stage_id', '=', int(stage))]
+
+        lang = get_language(kw.get('lang'))
+
+        all_data = request.env['crm.lead'].sudo().with_context(lang=lang).search(domain)
 
         for rec in all_data:
             data = dict()
             data['id'] = rec.id
-            data['partner_id'] = rec.partner_id.id
             data['name'] = rec.name
+            data['partner_id'] = correct_field_data(rec.partner_id.id)
             data['expected_revenue'] = rec.expected_revenue
-            data['description'] = rec.description
-            data['source_id'] = rec.source_id.id
-            data['stage_id'] = rec.stage_id.id
-            data['user_id'] = rec.user_id.id
+            data['description'] = correct_field_data(rec.description)
+            data['source_id'] = correct_field_data(rec.source_id.id)
+            data['stage_id'] = correct_field_data(rec.stage_id.id)
+            data['user_id'] = correct_field_data(rec.user_id.id)
             data['write_date'] = rec.write_date
             data_list.append(data)
 

@@ -191,7 +191,7 @@ class bs_rest_api(http.Controller):
 
         data_list = []
 
-        all_data = request.env['res.users'].sudo().search([])
+        all_data = request.env['res.users'].sudo().search([('share', '=', False)])
         for rec in all_data:
             data = dict()
             data['id'] = rec.id

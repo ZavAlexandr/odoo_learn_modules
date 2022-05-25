@@ -157,7 +157,7 @@ class bs_rest_api(http.Controller):
         if is_updated:
             output = get_json_ok_response(200, 'Record updated for res.partner with ID: ' + str(partner_id))
         else:
-            output = get_json_error_response(504, 'Error updating record for ID: ' + str(partner_id))
+            output = get_json_error_response(504, 'Error updating record for res.partner with ID: ' + str(partner_id))
         return json.dumps(output)
 
     @http.route('/api/get_crm_stages', auth='public', method=['GET'], csrf=False)
@@ -264,3 +264,33 @@ class bs_rest_api(http.Controller):
 
         json_data = json.dumps(data_list, default=date_utils.json_default)
         return Response(json_data, 200)
+
+    @http.route('/api/update_lead/<int:lead_id>', auth='public', method=['GET'], csrf=False)
+    def update_lead(self, lead_id, **kw):
+        req_apikey = kw.get('apikey')
+        res = check_apikey(req_apikey)
+        if isinstance(res, str):
+            return res
+
+        data = request.env['crm.lead'].sudo().search([('id', '=', lead_id)])
+        if not data:
+            output = get_json_error_response(505, 'No lead with ID: ' + str(lead_id))
+            return json.dumps(output)
+
+        edit_rec = {}
+        fields_list = ['expected_revenue', 'stage_id', 'user_id']
+        for fld in fields_list:
+            val = kw.get(fld)
+            if val:
+                if fld == 'expected_revenue':
+                    edit_rec.update({fld: float(val)})
+                else:
+                    edit_rec.update({fld: int(val)})
+
+        is_updated = data.sudo().write(edit_rec)
+
+        if is_updated:
+            output = get_json_ok_response(200, 'Record updated for crm.lead with ID: ' + str(lead_id))
+        else:
+            output = get_json_error_response(506, 'Error updating record for crm.lead with ID: ' + str(lead_id))
+        return json.dumps(output)

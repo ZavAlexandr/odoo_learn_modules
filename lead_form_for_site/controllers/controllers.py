@@ -16,7 +16,7 @@ class LeadFormSiteController(http.Controller):
             lang_template = 'lead_form_ua'
 
         response = http.request.render('lead_form_for_site.' + lang_template, {})
-        response.headers['X-Frame-Options'] = 'ALLOW-FROM ' + http.request.httprequest.host_url
+        # response.headers['X-Frame-Options'] = 'ALLOW-FROM ' + http.request.httprequest.host_url
         return response
 
     @http.route('/add_new_lead', auth='public', method=['POST'], csrf=False)

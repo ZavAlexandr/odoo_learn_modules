@@ -118,7 +118,7 @@ class bs_rest_api(http.Controller):
             return res
 
         new_rec = {}
-        fields_list = ['name', 'company_type', 'email', 'phone', 'vat', 'comment']
+        fields_list = ['name', 'company_type', 'email', 'phone', 'vat', 'comment', 'parent_id']
         for fld in fields_list:
             val = kw.get(fld)
             if not val:
@@ -126,11 +126,14 @@ class bs_rest_api(http.Controller):
                     val = 'company'
                 else:
                     val = ''
+            if fld == 'parent_id':
+                val = int(val)
+
             new_rec.update({fld: val})
 
         created_id = request.env['res.partner'].sudo().create(new_rec)
 
-        output = get_json_error_response(200, created_id.id)
+        output = get_json_ok_response(200, created_id.id)
         return json.dumps(output)
 
     @http.route('/api/update_contact/<int:partner_id>', auth='public', method=['GET'], csrf=False)
@@ -146,10 +149,12 @@ class bs_rest_api(http.Controller):
             return json.dumps(output)
 
         edit_rec = {}
-        fields_list = ['name', 'company_type', 'email', 'phone', 'vat', 'comment']
+        fields_list = ['name', 'company_type', 'email', 'phone', 'vat', 'comment', 'parent_id']
         for fld in fields_list:
             val = kw.get(fld)
             if val:
+                if fld == 'parent_id':
+                    val = int(val)
                 edit_rec.update({fld: val})
 
         is_updated = data.sudo().write(edit_rec)
@@ -278,14 +283,16 @@ class bs_rest_api(http.Controller):
             return json.dumps(output)
 
         edit_rec = {}
-        fields_list = ['expected_revenue', 'stage_id', 'user_id']
+        fields_list = ['expected_revenue', 'stage_id', 'user_id', 'name', 'description']
         for fld in fields_list:
             val = kw.get(fld)
             if val:
                 if fld == 'expected_revenue':
                     edit_rec.update({fld: float(val)})
-                else:
+                elif fld == 'stage_id' or fld == 'user_id':
                     edit_rec.update({fld: int(val)})
+                else:
+                    edit_rec.update({fld: val})
 
         is_updated = data.sudo().write(edit_rec)
 

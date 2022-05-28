@@ -126,8 +126,9 @@ class bs_rest_api(http.Controller):
                     val = 'company'
                 else:
                     val = ''
-            if fld == 'parent_id':
-                val = int(val)
+            else:
+                if fld == 'parent_id':
+                    val = int(val)
 
             new_rec.update({fld: val})
 
@@ -155,7 +156,8 @@ class bs_rest_api(http.Controller):
             if val:
                 if fld == 'parent_id':
                     val = int(val)
-                edit_rec.update({fld: val})
+
+            edit_rec.update({fld: val})
 
         is_updated = data.sudo().write(edit_rec)
 

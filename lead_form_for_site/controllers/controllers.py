@@ -41,6 +41,18 @@ class LeadFormSiteController(http.Controller):
 
             new_rec.update({key_record: val_request})
 
+        campaign_id = kw.get('campaign')
+        if campaign_id:
+            campaign_record = request.env['utm.campaign'].sudo().search([('id', '=', int(campaign_id))])
+            if campaign_record:
+                new_rec.update({'campaign_id': int(campaign_id)})
+
+        source_id = kw.get('source')
+        if source_id:
+            source_record = request.env['utm.source'].sudo().search([('id', '=', int(source_id))])
+            if source_record:
+                new_rec.update({'source_id': int(source_id)})
+
         new_rec.update({'type': 'lead'})
         request.env['crm.lead'].sudo().create(new_rec)
 

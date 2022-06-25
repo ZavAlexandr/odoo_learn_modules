@@ -26,7 +26,6 @@ def get_json_ok_response(code, message):
 
 
 def check_apikey(req_apikey):
-
     if not req_apikey:
         output = get_json_error_response(501, 'No API key in request')
         return json.dumps(output)
@@ -167,6 +166,27 @@ class bs_rest_api(http.Controller):
             output = get_json_error_response(504, 'Error updating record for res.partner with ID: ' + str(partner_id))
         return json.dumps(output)
 
+    @http.route('/api/get_crm_lost_reasons', auth='public', method=['GET'], csrf=False)
+    def get_crm_lost_reasons(self, **kw):
+        req_apikey = kw.get('apikey')
+        res = check_apikey(req_apikey)
+        if isinstance(res, str):
+            return res
+
+        lang = get_language(kw.get('lang'))
+        data_list = []
+
+        all_data = request.env['crm.lost.reason'].sudo().with_context(lang=lang).search([])
+        for rec in all_data:
+            data = dict()
+            data['id'] = rec.id
+            data['name'] = rec.name
+            data['write_date'] = rec.write_date
+            data_list.append(data)
+
+        json_data = json.dumps(data_list, default=date_utils.json_default)
+        return Response(json_data, 200)
+
     @http.route('/api/get_crm_stages', auth='public', method=['GET'], csrf=False)
     def get_crm_stages(self, **kw):
         req_apikey = kw.get('apikey')
@@ -254,7 +274,7 @@ class bs_rest_api(http.Controller):
 
         lang = get_language(kw.get('lang'))
 
-        all_data = request.env['crm.lead'].sudo().with_context(lang=lang).search(domain)
+        all_data = request.env['crm.lead'].sudo().with_context(lang=lang, active_test=False).search(domain)
 
         for rec in all_data:
             data = dict()
@@ -266,6 +286,8 @@ class bs_rest_api(http.Controller):
             data['source_id'] = correct_field_data(rec.source_id.id)
             data['stage_id'] = correct_field_data(rec.stage_id.id)
             data['user_id'] = correct_field_data(rec.user_id.id)
+            data['lost_reason'] = correct_field_data(rec.lost_reason.id)
+            data['active'] = rec.active
             data['write_date'] = rec.write_date
             data_list.append(data)
 
@@ -279,22 +301,34 @@ class bs_rest_api(http.Controller):
         if isinstance(res, str):
             return res
 
-        data = request.env['crm.lead'].sudo().search([('id', '=', lead_id)])
+        data = request.env['crm.lead'].sudo().with_context(active_test=False).search([('id', '=', lead_id)])
         if not data:
             output = get_json_error_response(505, 'No lead with ID: ' + str(lead_id))
             return json.dumps(output)
 
         edit_rec = {}
-        fields_list = ['expected_revenue', 'stage_id', 'user_id', 'name', 'description']
+        fields_list = ['expected_revenue', 'stage_id', 'user_id', 'name', 'description', 'archived', 'lost_reason']
+        set_archive_to = False
+
         for fld in fields_list:
             val = kw.get(fld)
             if val:
                 if fld == 'expected_revenue':
                     edit_rec.update({fld: float(val)})
-                elif fld == 'stage_id' or fld == 'user_id':
+                elif fld == 'archived':
+                    if val.lower() == 'true':
+                        set_archive_to = True
+                    else:
+                        set_archive_to = False
+                elif fld == 'stage_id' or fld == 'user_id' or fld == 'lost_reason':
                     edit_rec.update({fld: int(val)})
                 else:
                     edit_rec.update({fld: val})
+
+        if set_archive_to and data.active:
+            data.action_archive()
+        elif not set_archive_to and not data.active:
+            data.action_unarchive()
 
         is_updated = data.sudo().write(edit_rec)
 

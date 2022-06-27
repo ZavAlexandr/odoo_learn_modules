@@ -90,9 +90,14 @@ class bs_rest_api(http.Controller):
         if isinstance(res, str):
             return res
 
+        write_time = kw.get('write_time')
         write_date = kw.get('write_date')
-        if write_date:
-            date_time_obj = datetime.strptime(write_date, '%d.%m.%Y')
+        if write_time or write_date:
+            if write_time:
+                date_time_obj = datetime.strptime(write_time, '%d.%m.%Y-%H:%M:%S')
+            else:
+                date_time_obj = datetime.strptime(write_date, '%d.%m.%Y')
+
             all_data = request.env['res.partner'].sudo().search([('write_date', '>=', date_time_obj)])
         else:
             all_data = request.env['res.partner'].sudo().search([])
@@ -264,9 +269,16 @@ class bs_rest_api(http.Controller):
         ]
 
         write_date = kw.get('write_date')
-        if write_date:
-            date_time_obj = datetime.strptime(write_date, '%d.%m.%Y')
+        write_time = kw.get('write_time')
+        if write_time or write_date:
+            if write_time:
+                date_time_obj = datetime.strptime(write_time, '%d.%m.%Y-%H:%M:%S')
+            else:
+                date_time_obj = datetime.strptime(write_date, '%d.%m.%Y')
+
             domain += [('write_date', '>=', date_time_obj)]
+
+
 
         stage = kw.get('stage')
         if stage:

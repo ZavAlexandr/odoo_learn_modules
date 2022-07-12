@@ -278,8 +278,6 @@ class bs_rest_api(http.Controller):
 
             domain += [('write_date', '>=', date_time_obj)]
 
-
-
         stage = kw.get('stage')
         if stage:
             domain += [('stage_id', '=', int(stage))]
@@ -305,6 +303,41 @@ class bs_rest_api(http.Controller):
 
         json_data = json.dumps(data_list, default=date_utils.json_default)
         return Response(json_data, 200)
+
+    @http.route('/api/add_lead', auth='public', method=['GET'], csrf=False)
+    def add_lead(self, **kw):
+        req_apikey = kw.get('apikey')
+        res = check_apikey(req_apikey)
+        if isinstance(res, str):
+            return res
+
+        new_rec = {'type': 'opportunity'}
+        fields_list = ['expected_revenue', 'stage_id', 'user_id', 'name', 'description', 'archived', 'lost_reason']
+        set_archive_to = False
+
+        for fld in fields_list:
+            val = kw.get(fld)
+            if val:
+                if fld == 'expected_revenue':
+                    new_rec.update({fld: float(val)})
+                elif fld == 'archived':
+                    if val.lower() == 'true':
+                        set_archive_to = True
+                    else:
+                        set_archive_to = False
+                elif fld == 'stage_id' or fld == 'user_id' or fld == 'lost_reason':
+                    new_rec.update({fld: int(val)})
+                else:
+                    new_rec.update({fld: val})
+
+        created_id = request.env['crm.lead'].sudo().create(new_rec)
+
+        data = request.env['crm.lead'].sudo().with_context(active_test=False).search([('id', '=', created_id.id)])
+        if data and set_archive_to:
+            data.action_archive()
+
+        output = get_json_ok_response(200, created_id.id)
+        return json.dumps(output)
 
     @http.route('/api/update_lead/<int:lead_id>', auth='public', method=['GET'], csrf=False)
     def update_lead(self, lead_id, **kw):

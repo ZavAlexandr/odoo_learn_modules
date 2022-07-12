@@ -312,7 +312,8 @@ class bs_rest_api(http.Controller):
             return res
 
         new_rec = {'type': 'opportunity'}
-        fields_list = ['expected_revenue', 'stage_id', 'user_id', 'name', 'description', 'archived', 'lost_reason']
+        fields_list = ['expected_revenue', 'partner_id', 'stage_id', 'user_id', 'source_id', 'name',
+                       'description', 'archived', 'lost_reason']
         set_archive_to = False
 
         for fld in fields_list:
@@ -325,10 +326,10 @@ class bs_rest_api(http.Controller):
                         set_archive_to = True
                     else:
                         set_archive_to = False
-                elif fld == 'stage_id' or fld == 'user_id' or fld == 'lost_reason':
-                    new_rec.update({fld: int(val)})
-                else:
+                elif fld == 'name' or fld == 'description':
                     new_rec.update({fld: val})
+                else:
+                    new_rec.update({fld: int(val)})
 
         created_id = request.env['crm.lead'].sudo().create(new_rec)
 
@@ -352,7 +353,8 @@ class bs_rest_api(http.Controller):
             return json.dumps(output)
 
         edit_rec = {}
-        fields_list = ['expected_revenue', 'stage_id', 'user_id', 'name', 'description', 'archived', 'lost_reason']
+        fields_list = ['expected_revenue', 'partner_id', 'stage_id', 'user_id', 'source_id', 'name',
+                       'description', 'archived', 'lost_reason']
         set_archive_to = False
 
         for fld in fields_list:
@@ -365,10 +367,10 @@ class bs_rest_api(http.Controller):
                         set_archive_to = True
                     else:
                         set_archive_to = False
-                elif fld == 'stage_id' or fld == 'user_id' or fld == 'lost_reason':
-                    edit_rec.update({fld: int(val)})
-                else:
+                elif fld == 'name' or fld == 'description':
                     edit_rec.update({fld: val})
+                else:
+                    edit_rec.update({fld: int(val)})
 
         if set_archive_to and data.active:
             data.action_archive()

@@ -17,25 +17,25 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: bs_project
-#: code:addons/bs_project/models/models.py:0
-#: model:ir.model.fields,field_description:bs_project.field_project_project__work_hours
-#, python-format
-msgid "Hours"
-msgstr "Часы"
-
-#. module: bs_project
 #: model_terms:ir.ui.view,arch_db:bs_project.bs_inherited_project_view_project_kanban
-msgid "Hours / minutes:"
-msgstr "Часов / минут:"
-
-#. module: bs_project
-#: code:addons/bs_project/models/models.py:0
-#: model:ir.model.fields,field_description:bs_project.field_project_project__work_minutes
-#, python-format
-msgid "Minutes"
-msgstr "Минуты"
+msgid "Limit / remain (h:m)"
+msgstr "Лимит / остаток (ч:м)"
 
 #. module: bs_project
 #: model:ir.model,name:bs_project.model_project_project
 msgid "Project"
 msgstr "Проект"
+
+#. module: bs_project
+#: code:addons/bs_project/models/models.py:0
+#: model:ir.model.fields,field_description:bs_project.field_project_project__bs_time_remain
+#, python-format
+msgid "Remain time (h:m)"
+msgstr "Остаток времени (ч:м)"
+
+#. module: bs_project
+#: code:addons/bs_project/models/models.py:0
+#: model:ir.model.fields,field_description:bs_project.field_project_project__bs_time_limit
+#, python-format
+msgid "Time limit (h:m)"
+msgstr "Лимит времени (ч:м)"

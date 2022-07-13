@@ -7,8 +7,8 @@
             <field name="inherit_id" ref="project.edit_project"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='company_id']" position="before">
-                   <field name="work_hours"/>
-                   <field name="work_minutes"/>
+                   <field name="bs_time_limit" widget="timesheet_uom"/>
+                   <field name="bs_time_remain" widget="timesheet_uom"/>
                 </xpath>
             </field>
         </record>
@@ -19,13 +19,13 @@
             <field name="inherit_id" ref="project.view_project_kanban"/>
             <field name="arch" type="xml">
                 <xpath expr="/kanban" position="inside">
-                    <field name="work_hours"/>
-                    <field name="work_minutes"/>
+                    <field name="bs_time_limit" widget="timesheet_uom"/>
+                    <field name="bs_time_remain" widget="timesheet_uom"/>
                 </xpath>
                 <xpath expr="//field[@widget='many2many_tags']" position="after">
-                    Hours / minutes:
-                   <field name="work_hours"/> /
-                   <field name="work_minutes"/>
+                    Limit / remain (h:m)
+                   <field name="bs_time_limit" widget="timesheet_uom"/> /
+                   <field name="bs_time_remain" widget="timesheet_uom"/>
                 </xpath>
             </field>
         </record>

@@ -21,3 +21,8 @@ class bs_project(models.Model):
                 unit_amount += rec.unit_amount
 
             doc.bs_time_remain = doc.bs_time_limit - unit_amount
+
+
+class bs_project_task(models.Model):
+    _inherit = 'project.task'
+    _order = 'date_deadline desc, priority desc, sequence, id desc'

@@ -312,8 +312,8 @@ class bs_rest_api(http.Controller):
             return res
 
         new_rec = {'type': 'opportunity'}
-        fields_list = ['expected_revenue', 'partner_id', 'stage_id', 'user_id', 'source_id', 'name',
-                       'description', 'archived', 'lost_reason']
+        fields_list = ['name', 'description', 'archived', 'expected_revenue',
+                       'partner_id', 'stage_id', 'user_id', 'source_id', 'lost_reason']
         set_archive_to = False
 
         for fld in fields_list:
@@ -353,15 +353,16 @@ class bs_rest_api(http.Controller):
             return json.dumps(output)
 
         edit_rec = {}
-        fields_list = ['expected_revenue', 'partner_id', 'stage_id', 'user_id', 'source_id', 'name',
-                       'description', 'archived', 'lost_reason']
+        fields_list = ['name', 'description', 'archived', 'expected_revenue',
+                       'partner_id', 'stage_id', 'user_id', 'source_id', 'lost_reason']
         set_archive_to = False
 
         for fld in fields_list:
             val = kw.get(fld)
             if val:
                 if fld == 'expected_revenue':
-                    edit_rec.update({fld: float(val)})
+                    if data.expected_revenue != float(val):
+                        edit_rec.update({fld: float(val)})
                 elif fld == 'archived':
                     if val.lower() == 'true':
                         set_archive_to = True
@@ -370,14 +371,15 @@ class bs_rest_api(http.Controller):
                 elif fld == 'name' or fld == 'description':
                     edit_rec.update({fld: val})
                 else:
-                    edit_rec.update({fld: int(val)})
+                    if data[fld].id != int(val):
+                        edit_rec.update({fld: int(val)})
 
         if set_archive_to and data.active:
             data.action_archive()
         elif not set_archive_to and not data.active:
             data.action_unarchive()
 
-        is_updated = data.sudo().write(edit_rec)
+        is_updated = data.sudo().with_context(mail_auto_subscribe_no_notify=True).write(edit_rec)
 
         if is_updated:
             output = get_json_ok_response(200, 'Record updated for crm.lead with ID: ' + str(lead_id))

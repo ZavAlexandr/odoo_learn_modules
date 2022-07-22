@@ -155,20 +155,28 @@ class bs_rest_api(http.Controller):
 
         edit_rec = {}
         fields_list = ['name', 'company_type', 'email', 'phone', 'vat', 'comment', 'parent_id']
+
         for fld in fields_list:
             val = kw.get(fld)
             if val:
                 if fld == 'parent_id':
-                    val = int(val)
+                    if data[fld].id != int(val):
+                        edit_rec.update({fld: int(val)})
+                else:
+                    if data[fld] != val:
+                        edit_rec.update({fld: val})
 
-            edit_rec.update({fld: val})
+        if edit_rec:
+            is_updated = data.sudo().write(edit_rec)
 
-        is_updated = data.sudo().write(edit_rec)
-
-        if is_updated:
-            output = get_json_ok_response(200, 'Record updated for res.partner with ID: ' + str(partner_id))
+            if is_updated:
+                output = get_json_ok_response(200, 'Record updated for res.partner with ID: ' + str(partner_id))
+            else:
+                output = get_json_error_response(504,
+                                                 'Error updating record for res.partner with ID: ' + str(partner_id))
         else:
-            output = get_json_error_response(504, 'Error updating record for res.partner with ID: ' + str(partner_id))
+            output = get_json_ok_response(200, 'No changes for res.partner with ID: ' + str(partner_id))
+
         return json.dumps(output)
 
     @http.route('/api/get_crm_lost_reasons', auth='public', method=['GET'], csrf=False)
@@ -369,7 +377,8 @@ class bs_rest_api(http.Controller):
                     else:
                         set_archive_to = False
                 elif fld == 'name' or fld == 'description':
-                    edit_rec.update({fld: val})
+                    if data[fld] != val:
+                        edit_rec.update({fld: val})
                 else:
                     if data[fld].id != int(val):
                         edit_rec.update({fld: int(val)})
@@ -379,10 +388,14 @@ class bs_rest_api(http.Controller):
         elif not set_archive_to and not data.active:
             data.action_unarchive()
 
-        is_updated = data.sudo().with_context(mail_auto_subscribe_no_notify=True).write(edit_rec)
+        if edit_rec:
+            is_updated = data.sudo().with_context(mail_auto_subscribe_no_notify=True).write(edit_rec)
 
-        if is_updated:
-            output = get_json_ok_response(200, 'Record updated for crm.lead with ID: ' + str(lead_id))
+            if is_updated:
+                output = get_json_ok_response(200, 'Record updated for crm.lead with ID: ' + str(lead_id))
+            else:
+                output = get_json_error_response(506, 'Error updating record for crm.lead with ID: ' + str(lead_id))
         else:
-            output = get_json_error_response(506, 'Error updating record for crm.lead with ID: ' + str(lead_id))
+            output = get_json_ok_response(200, 'No changes for crm.lead with ID: ' + str(lead_id))
+
         return json.dumps(output)

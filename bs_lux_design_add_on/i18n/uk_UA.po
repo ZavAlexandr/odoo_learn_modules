@@ -1,0 +1,122 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* bs_lux_design_add_on
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-07-22 09:56+0000\n"
+"PO-Revision-Date: 2022-07-22 09:56+0000\n"
+"Last-Translator: \n"
+"Language-Team: Ukrainian (Ukraine)\n"
+"Language: uk-UA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: bs_lux_design_add_on
+#: model:ir.model.fields.selection,name:bs_lux_design_add_on.selection__res_company__bs_phone_format__type_1
+msgid "+38067"
+msgstr "+38067"
+
+#. module: bs_lux_design_add_on
+#: model:ir.model.fields.selection,name:bs_lux_design_add_on.selection__res_company__bs_phone_format__type_3
+msgid "067"
+msgstr "067"
+
+#. module: bs_lux_design_add_on
+#: model:ir.model.fields.selection,name:bs_lux_design_add_on.selection__res_company__bs_phone_format__type_2
+msgid "38067"
+msgstr "38067"
+
+#. module: bs_lux_design_add_on
+#: code:addons/bs_lux_design_add_on/models/models.py:0
+#, python-format
+msgid "Check mobile format!"
+msgstr "Перевірте кількість знаків в мобільному номері!"
+
+#. module: bs_lux_design_add_on
+#: code:addons/bs_lux_design_add_on/models/models.py:0
+#, python-format
+msgid "Check phone format!"
+msgstr "Перевірте кількість знаків в номері телефону!"
+
+#. module: bs_lux_design_add_on
+#: model_terms:ir.ui.view,arch_db:bs_lux_design_add_on.bs_inherited_res_partner_select
+msgid "Child contacts"
+msgstr "Підпорядковані контакти"
+
+#. module: bs_lux_design_add_on
+#: code:addons/bs_lux_design_add_on/models/models.py:0
+#, python-format
+msgid "Click on \"Set to main contact\" in button bar for selecting main contact."
+msgstr "Натисніть кнопку \"Оформити на головний контакт\" на панелі кнопок щоб встановити контакт в нагоді на головний контакт"
+
+#. module: bs_lux_design_add_on
+#: model:ir.model,name:bs_lux_design_add_on.model_res_company
+msgid "Companies"
+msgstr "Компанії"
+
+#. module: bs_lux_design_add_on
+#: model:ir.model,name:bs_lux_design_add_on.model_res_partner
+msgid "Contact"
+msgstr "Контакт"
+
+#. module: bs_lux_design_add_on
+#: code:addons/bs_lux_design_add_on/models/models.py:0
+#: code:addons/bs_lux_design_add_on/models/models.py:0
+#: model:ir.model.fields,field_description:bs_lux_design_add_on.field_crm_lead__is_child_contact
+#: model:ir.model.fields,field_description:bs_lux_design_add_on.field_res_partner__is_child_contact
+#: model:ir.model.fields,field_description:bs_lux_design_add_on.field_res_users__is_child_contact
+#, python-format
+msgid "Is child contact"
+msgstr "Це підпорядкований контакт"
+
+#. module: bs_lux_design_add_on
+#: model:ir.model,name:bs_lux_design_add_on.model_crm_lead
+msgid "Lead/Opportunity"
+msgstr "Лід/Нагода"
+
+#. module: bs_lux_design_add_on
+#: code:addons/bs_lux_design_add_on/models/models.py:0
+#: model:ir.model.fields,field_description:bs_lux_design_add_on.field_res_partner__main_contact_id
+#: model:ir.model.fields,field_description:bs_lux_design_add_on.field_res_users__main_contact_id
+#, python-format
+msgid "Main contact"
+msgstr "Головний контакт"
+
+#. module: bs_lux_design_add_on
+#: model_terms:ir.ui.view,arch_db:bs_lux_design_add_on.bs_inherited_res_partner_select
+msgid "Main contacts"
+msgstr "Головні контакти"
+
+#. module: bs_lux_design_add_on
+#: code:addons/bs_lux_design_add_on/models/models.py:0
+#: model:ir.model.fields,field_description:bs_lux_design_add_on.field_res_company__bs_phone_format
+#, python-format
+msgid "Phone format"
+msgstr "Формат номера телефону"
+
+#. module: bs_lux_design_add_on
+#: model_terms:ir.ui.view,arch_db:bs_lux_design_add_on.bs_inherited_crm_crm_lead_view_form
+msgid "Set contact in lead as the main contact?"
+msgstr "Оформити нагоду на головний контакт?"
+
+#. module: bs_lux_design_add_on
+#: model_terms:ir.ui.view,arch_db:bs_lux_design_add_on.bs_inherited_crm_crm_lead_view_form
+msgid "Set to main contact"
+msgstr "Оформити на головний контакт"
+
+#. module: bs_lux_design_add_on
+#: code:addons/bs_lux_design_add_on/models/models.py:0
+#, python-format
+msgid "Warning!"
+msgstr "Попередження!"
+
+#. module: bs_lux_design_add_on
+#: code:addons/bs_lux_design_add_on/models/models.py:0
+#, python-format
+msgid "You have selected contact - child of: \""
+msgstr "Ви обрали контакт, якій підпорядкований: \""

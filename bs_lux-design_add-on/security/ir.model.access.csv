@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_bs_contacts_luxdesign_bs_contacts_luxdesign,bs_contacts_luxdesign.bs_contacts_luxdesign,model_bs_contacts_luxdesign_bs_contacts_luxdesign,base.group_user,1,1,1,1

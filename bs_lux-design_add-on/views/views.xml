@@ -1,0 +1,70 @@
+<odoo>
+    <data>
+
+        <record id="bs_inherited_base_view_partner_form" model="ir.ui.view">
+            <field name="name">bs_inherited.base.view_partner_form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='vat']" position="after">
+                    <field name="main_contact_id"/>
+                    <field name="is_child_contact" invisible="1"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="bs_inherited_base_view_partner_tree" model="ir.ui.view">
+            <field name="name">bs_inherited.base.view_partner_tree</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//tree[@sample='1']" position="attributes">
+                    <attribute name="decoration-info" add="(is_child_contact == True)" separator=" "/>
+                </xpath>
+                <xpath expr="//field[@name='active']" position="after">
+                    <field name="is_child_contact" invisible="1"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="bs_inherited_res_partner_select" model="ir.ui.view">
+            <field name="name">bs_inherited.res.partner.select</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//filter[@name='type_company']" position="after">
+                    <filter string="Main contacts" name="show_main_contacts"
+                            domain="[('is_child_contact', '=', False)]"/>
+                    <filter string="Child contacts" name="show_child_contacts"
+                            domain="[('is_child_contact', '=', True)]"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="bs_inherited_crm_crm_lead_view_form" model="ir.ui.view">
+            <field name="name">bs_inherited.crm.crm_lead_view_form</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='action_set_lost']" position="after">
+                    <field name="is_child_contact" invisible="1"/>
+                    <button name="set_main_contact" string="Set to main contact" class="oe_highlight"
+                            type="object" attrs="{'invisible':[('is_child_contact','=',False)]}"
+                            confirm="Set contact in lead as the main contact?"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="bs_inherited_base_view_company_form" model="ir.ui.view">
+            <field name="name">bs_inherited.base.view_company_form</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='currency_id']" position="after">
+                    <field name="bs_phone_format"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

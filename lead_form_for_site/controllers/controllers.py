@@ -4,8 +4,8 @@ from odoo.http import request
 
 class LeadFormSiteController(http.Controller):
 
-    @http.route('/get_lead_form', auth='public', method=['GET'])
-    @http.route('/<string:lang>/get_lead_form', auth='public', method=['GET'])
+    @http.route('/get_lead_form', auth='public', methods=['GET'])
+    @http.route('/<string:lang>/get_lead_form', auth='public', methods=['GET'])
     def get_lead_form(self, **kw):
         lang = kw.get('lang')
 
@@ -19,7 +19,7 @@ class LeadFormSiteController(http.Controller):
         # response.headers['X-Frame-Options'] = 'ALLOW-FROM ' + http.request.httprequest.host_url
         return response
 
-    @http.route('/add_new_lead', auth='public', method=['POST'], csrf=False)
+    @http.route('/add_new_lead', auth='public', methods=['POST'], csrf=False)
     def add_new_lead(self, **kw):
 
         fields_dic = {

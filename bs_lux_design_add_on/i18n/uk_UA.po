@@ -40,7 +40,7 @@ msgstr "Перевірте кількість знаків в мобільном
 #. module: bs_lux_design_add_on
 #: code:addons/bs_lux_design_add_on/models/models.py:0
 #, python-format
-msgid "Check phone format!"
+msgid "Check phone length!"
 msgstr "Перевірте кількість знаків в номері телефону!"
 
 #. module: bs_lux_design_add_on

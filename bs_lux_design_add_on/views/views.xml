@@ -55,6 +55,17 @@
             </field>
         </record>
 
+        <record id="bs_inherited_crm_crm_case_kanban_view_leads" model="ir.ui.view">
+            <field name="name">bs_inherited.crm.crm_case_kanban_view_leads</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_case_kanban_view_leads"/>
+            <field name="arch" type="xml">
+                <xpath expr="//kanban" position="attributes">
+                    <attribute name="on_create"/>
+                </xpath>
+            </field>
+        </record>
+
         <record id="bs_inherited_base_view_company_form" model="ir.ui.view">
             <field name="name">bs_inherited.base.view_company_form</field>
             <field name="model">res.company</field>

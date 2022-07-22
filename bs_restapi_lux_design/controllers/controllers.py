@@ -84,7 +84,7 @@ def get_language(req_lang):
 
 class bs_rest_api(http.Controller):
 
-    @http.route('/api/get_contacts', auth='public', method=['GET'], csrf=False)
+    @http.route('/api/get_contacts', auth='public', methods=['GET'], csrf=False)
     def get_contacts(self, **kw):
         req_apikey = kw.get('apikey')
         res = check_apikey(req_apikey)
@@ -105,7 +105,7 @@ class bs_rest_api(http.Controller):
 
         return get_contact_data(all_data)
 
-    @http.route('/api/get_contact/<int:partner_id>', auth='public', method=['GET'], csrf=False)
+    @http.route('/api/get_contact/<int:partner_id>', auth='public', methods=['GET'], csrf=False)
     def get_contact(self, partner_id, **kw):
         req_apikey = kw.get('apikey')
         res = check_apikey(req_apikey)
@@ -115,7 +115,7 @@ class bs_rest_api(http.Controller):
         data = request.env['res.partner'].sudo().search([('id', '=', partner_id)])
         return get_contact_data(data)
 
-    @http.route('/api/add_contact', auth='public', method=['GET'], csrf=False)
+    @http.route('/api/add_contact', auth='public', methods=['GET'], csrf=False)
     def add_contact(self, **kw):
         req_apikey = kw.get('apikey')
         res = check_apikey(req_apikey)
@@ -142,7 +142,7 @@ class bs_rest_api(http.Controller):
         output = get_json_ok_response(200, created_id.id)
         return json.dumps(output)
 
-    @http.route('/api/update_contact/<int:partner_id>', auth='public', method=['GET'], csrf=False)
+    @http.route('/api/update_contact/<int:partner_id>', auth='public', methods=['GET'], csrf=False)
     def update_contact(self, partner_id, **kw):
         req_apikey = kw.get('apikey')
         res = check_apikey(req_apikey)
@@ -180,7 +180,7 @@ class bs_rest_api(http.Controller):
 
         return json.dumps(output)
 
-    @http.route('/api/get_crm_lost_reasons', auth='public', method=['GET'], csrf=False)
+    @http.route('/api/get_crm_lost_reasons', auth='public', methods=['GET'], csrf=False)
     def get_crm_lost_reasons(self, **kw):
         req_apikey = kw.get('apikey')
         res = check_apikey(req_apikey)
@@ -201,7 +201,7 @@ class bs_rest_api(http.Controller):
         json_data = json.dumps(data_list, default=date_utils.json_default)
         return Response(json_data, 200)
 
-    @http.route('/api/get_crm_stages', auth='public', method=['GET'], csrf=False)
+    @http.route('/api/get_crm_stages', auth='public', methods=['GET'], csrf=False)
     def get_crm_stages(self, **kw):
         req_apikey = kw.get('apikey')
         res = check_apikey(req_apikey)
@@ -223,7 +223,7 @@ class bs_rest_api(http.Controller):
         json_data = json.dumps(data_list, default=date_utils.json_default)
         return Response(json_data, 200)
 
-    @http.route('/api/get_odoo_users', auth='public', method=['GET'], csrf=False)
+    @http.route('/api/get_odoo_users', auth='public', methods=['GET'], csrf=False)
     def get_odoo_users(self, **kw):
         req_apikey = kw.get('apikey')
         res = check_apikey(req_apikey)
@@ -243,7 +243,7 @@ class bs_rest_api(http.Controller):
         json_data = json.dumps(data_list, default=date_utils.json_default)
         return Response(json_data, 200)
 
-    @http.route('/api/get_utm_sources', auth='public', method=['GET'], csrf=False)
+    @http.route('/api/get_utm_sources', auth='public', methods=['GET'], csrf=False)
     def get_users(self, **kw):
         req_apikey = kw.get('apikey')
         res = check_apikey(req_apikey)
@@ -264,7 +264,7 @@ class bs_rest_api(http.Controller):
         json_data = json.dumps(data_list, default=date_utils.json_default)
         return Response(json_data, 200)
 
-    @http.route('/api/get_leads', auth='public', method=['GET'], csrf=False)
+    @http.route('/api/get_leads', auth='public', methods=['GET'], csrf=False)
     def get_leads(self, **kw):
         req_apikey = kw.get('apikey')
         res = check_apikey(req_apikey)
@@ -313,7 +313,7 @@ class bs_rest_api(http.Controller):
         json_data = json.dumps(data_list, default=date_utils.json_default)
         return Response(json_data, 200)
 
-    @http.route('/api/add_lead', auth='public', method=['GET'], csrf=False)
+    @http.route('/api/add_lead', auth='public', methods=['GET'], csrf=False)
     def add_lead(self, **kw):
         req_apikey = kw.get('apikey')
         res = check_apikey(req_apikey)
@@ -349,7 +349,7 @@ class bs_rest_api(http.Controller):
         output = get_json_ok_response(200, created_id.id)
         return json.dumps(output)
 
-    @http.route('/api/update_lead/<int:lead_id>', auth='public', method=['GET'], csrf=False)
+    @http.route('/api/update_lead/<int:lead_id>', auth='public', methods=['GET'], csrf=False)
     def update_lead(self, lead_id, **kw):
         req_apikey = kw.get('apikey')
         res = check_apikey(req_apikey)
@@ -401,7 +401,7 @@ class bs_rest_api(http.Controller):
 
         return json.dumps(output)
 
-    @http.route('/api/get_contacts_tags_list', auth='public', method=['GET'], csrf=False)
+    @http.route('/api/get_contacts_tags_list', auth='public', methods=['GET'], csrf=False)
     def get_contacts_tags_list(self, **kw):
         req_apikey = kw.get('apikey')
         res = check_apikey(req_apikey)

@@ -43,12 +43,6 @@ def bs_check_phone(number, bs_phone_format):
         else:
             return False
 
-    if bs_phone_format == 'type_2':
-        if len(number) == 12:
-            return True
-        else:
-            return False
-
     if bs_phone_format == 'type_3':
         if len(number) == 10:
             return True
@@ -71,39 +65,39 @@ class bs_contacts_lux_design(models.Model):
             self.is_child_contact = False
 
     @api.onchange('phone')
-    def onchange_phone(self):
+    def _onchange_phone(self):
         self.ensure_one()
         bs_phone_format = self.env.company.bs_phone_format
 
         for obj in self:
-            if len(obj.phone) != 0:
+            if obj.phone:
                 new_number = bs_get_formatted_phone(obj.phone, bs_phone_format)
                 if obj.phone != new_number:
                     obj.phone = new_number
 
     @api.onchange('mobile')
-    def onchange_mobile(self):
+    def _onchange_mobile(self):
         self.ensure_one()
         bs_phone_format = self.env.company.bs_phone_format
 
         for obj in self:
-            if len(obj.mobile) != 0:
+            if obj.mobile:
                 new_number = bs_get_formatted_phone(obj.mobile, bs_phone_format)
                 if obj.mobile != new_number:
                     obj.mobile = new_number
 
     @api.constrains('phone', 'mobile')
-    def check_number_format(self):
+    def _check_number_format(self):
         self.ensure_one()
         bs_phone_format = self.env.company.bs_phone_format
 
         if self.phone:
             if not bs_check_phone(self.phone, bs_phone_format):
-                raise ValidationError(_('Check phone format!'))
+                raise ValidationError(_('Check phone length!'))
 
         if self.mobile:
             if not bs_check_phone(self.mobile, bs_phone_format):
-                raise ValidationError(_('Check mobile format!'))
+                raise ValidationError(_('Check mobile length!'))
 
 
 class bs_crm_lead_lux_design(models.Model):
@@ -127,6 +121,17 @@ class bs_crm_lead_lux_design(models.Model):
     def set_main_contact(self):
         self.partner_id = self.partner_id.main_contact_id
         self.is_child_contact = False
+
+    @api.onchange('phone')
+    def _onchange_phone(self):
+        self.ensure_one()
+        bs_phone_format = self.env.company.bs_phone_format
+
+        for obj in self:
+            if obj.phone:
+                new_number = bs_get_formatted_phone(obj.phone, bs_phone_format)
+                if obj.phone != new_number:
+                    obj.phone = new_number
 
 
 class bs_res_company_lux_design(models.Model):

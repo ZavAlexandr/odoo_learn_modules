@@ -75,6 +75,7 @@ def get_contact_data(records):
         data['write_date'] = rec.write_date
         data['tags'] = rec.category_id.ids
         data['main_contact_id'] = correct_field_data(rec.main_contact_id.id)
+        data['archived'] = not rec.active
 
         if has_leads_in_bonsens_stages:
             filtered_recs = leads_in_stages_for_bs.filtered(lambda l: l.partner_id.id == rec.id)
@@ -209,7 +210,7 @@ class bs_rest_api(http.Controller):
                     current_tags_list = data.category_id.ids
                     current_tags_list.sort()
 
-                    if val == '[]':
+                    if val == '*':
                         new_tags_list = list()
                     else:
                         new_tags_list = val.split(',')

@@ -162,8 +162,9 @@ class bs_rest_api(http.Controller):
                     else:
                         set_archive_to = False
                 elif fld == 'tags':
-                    tags = Command.set(val.split(','))
-                    new_rec.update({'category_id': [tags]})
+                    if val != '*':
+                        tags = Command.set(val.split(','))
+                        new_rec.update({'category_id': [tags]})
                 else:
                     new_rec.update({fld: val})
 

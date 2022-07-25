@@ -333,10 +333,13 @@ class bs_rest_api(http.Controller):
         if isinstance(res, str):
             return res
 
+        stages_for_bs = request.env['crm.stage'].sudo().search([('export_to_bonsens', '=', True)])
+
         data_list = []
 
         domain = [
             ('type', '=', 'opportunity'),
+            ('stage_id', 'in', stages_for_bs.ids),
         ]
 
         write_date = kw.get('write_date')

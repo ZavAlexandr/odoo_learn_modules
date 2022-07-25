@@ -115,7 +115,7 @@ class bs_crm_lead_lux_design(models.Model):
                 'warning': {
                     'title': _('Warning!'),
                     'message': _('You have selected contact - child of: "') + self.partner_id.main_contact_id.name +
-                    '"! ' + _('Click on "Set to main contact" in button bar for selecting main contact.')}
+                               '"! ' + _('Click on "Set to main contact" in button bar for selecting main contact.')}
             }
 
     def set_main_contact(self):
@@ -141,3 +141,9 @@ class bs_res_company_lux_design(models.Model):
         [('type_1', '+38067'), ('type_2', '38067'), ('type_3', '067')],
         string=_('Phone format'))
 
+
+class bs_crm_stage_lux_design(models.Model):
+    _inherit = 'crm.stage'
+
+    export_to_bonsens = fields.Boolean(_('Export to BonSens'),
+                                       help=_('Contacts in this stage will be exported to BonSens'))

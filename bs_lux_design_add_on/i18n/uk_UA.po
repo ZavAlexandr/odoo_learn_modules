@@ -34,7 +34,7 @@ msgstr "38067"
 #. module: bs_lux_design_add_on
 #: code:addons/bs_lux_design_add_on/models/models.py:0
 #, python-format
-msgid "Check mobile format!"
+msgid "Check mobile length!"
 msgstr "Перевірте кількість знаків в мобільному номері!"
 
 #. module: bs_lux_design_add_on
@@ -120,3 +120,17 @@ msgstr "Попередження!"
 #, python-format
 msgid "You have selected contact - child of: \""
 msgstr "Ви обрали контакт, якій підпорядкований: \""
+
+#. module: bs_lux_design_add_on
+#: code:addons/bs_lux_design_add_on/models/models.py:0
+#: model:ir.model.fields,field_description:bs_lux_design_add_on.field_crm_stage__export_to_bonsens
+#, python-format
+msgid "Export to BonSens"
+msgstr "Вивантажувати у BonSens"
+
+#. module: bs_lux_design_add_on
+#: code:addons/bs_lux_design_add_on/models/models.py:0
+#: model:ir.model.fields,help:bs_lux_design_add_on.field_crm_stage__export_to_bonsens
+#, python-format
+msgid "Contacts in this stage will be exported to BonSens"
+msgstr "Контакти на цьому етапі буде експортовано в BonSens"

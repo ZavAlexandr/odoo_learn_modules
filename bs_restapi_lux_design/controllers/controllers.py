@@ -50,6 +50,18 @@ def correct_field_data(var):
 def get_contact_data(records):
     data_list = []
 
+    stages_for_bs = request.env['crm.stage'].sudo().search([('export_to_bonsens', '=', True)])
+    if stages_for_bs:
+        domain = [
+            ('type', '=', 'opportunity'),
+            ('stage_id', 'in', stages_for_bs.ids),
+            ('partner_id', 'in', records.ids),
+        ]
+        leads_in_stages_for_bs = request.env['crm.lead'].sudo().search(domain)
+        has_leads_in_bonsens_stages = True
+    else:
+        has_leads_in_bonsens_stages = False
+
     for rec in records:
         data = dict()
         data['id'] = rec.id
@@ -60,8 +72,19 @@ def get_contact_data(records):
         data['email'] = correct_field_data(rec.email)
         data['phone'] = correct_field_data(rec.phone)
         data['vat'] = correct_field_data(rec.vat)
-        data['tags'] = rec.category_id.ids
         data['write_date'] = rec.write_date
+        data['tags'] = rec.category_id.ids
+        data['main_contact_id'] = correct_field_data(rec.main_contact_id.id)
+
+        if has_leads_in_bonsens_stages:
+            filtered_recs = leads_in_stages_for_bs.filtered(lambda l: l.partner_id.id == rec.id)
+            if filtered_recs:
+                data['has_leads'] = True
+            else:
+                data['has_leads'] = False
+        else:
+            data['has_leads'] = False
+
         data_list.append(data)
 
     json_data = json.dumps(data_list, default=date_utils.json_default)
@@ -122,22 +145,31 @@ class bs_rest_api(http.Controller):
         if isinstance(res, str):
             return res
 
-        new_rec = {}
-        fields_list = ['name', 'company_type', 'email', 'phone', 'vat', 'comment', 'parent_id']
+        new_rec = {'company_type': 'company'}  # will be updated if exists in http query
+        fields_list = ['name', 'company_type', 'email', 'phone', 'vat', 'comment', 'parent_id',
+                       'archived', 'main_contact_id']
+        set_archive_to = False
+
         for fld in fields_list:
             val = kw.get(fld)
-            if not val:
-                if fld == 'company_type':
-                    val = 'company'
+            if val:
+                if fld == 'parent_id' or fld == 'main_contact_id':
+                    new_rec.update({fld: int(val)})
+                elif fld == 'archived':
+                    if val.lower() == 'true':
+                        set_archive_to = True
+                    else:
+                        set_archive_to = False
                 else:
-                    val = ''
-            else:
-                if fld == 'parent_id':
-                    val = int(val)
-
-            new_rec.update({fld: val})
+                    new_rec.update({fld: val})
 
         created_id = request.env['res.partner'].sudo().create(new_rec)
+
+        if set_archive_to:
+            data = request.env['res.partner'].sudo().with_context(active_test=False).search(
+                [('id', '=', created_id.id)])
+            if data:
+                data.action_archive()
 
         output = get_json_ok_response(200, created_id.id)
         return json.dumps(output)
@@ -149,23 +181,35 @@ class bs_rest_api(http.Controller):
         if isinstance(res, str):
             return res
 
-        data = request.env['res.partner'].sudo().search([('id', '=', partner_id)])
+        data = request.env['res.partner'].sudo().with_context(active_test=False).search([('id', '=', partner_id)])
         if not data:
             output = get_json_error_response(503, 'No contact for ID: ' + str(partner_id))
             return json.dumps(output)
 
         edit_rec = {}
-        fields_list = ['name', 'company_type', 'email', 'phone', 'vat', 'comment', 'parent_id']
+        fields_list = ['name', 'company_type', 'email', 'phone', 'vat', 'comment', 'parent_id',
+                       'archived', 'main_contact_id']
+        set_archive_to = False
 
         for fld in fields_list:
             val = kw.get(fld)
             if val:
-                if fld == 'parent_id':
+                if fld == 'parent_id' or fld == 'main_contact_id':
                     if data[fld].id != int(val):
                         edit_rec.update({fld: int(val)})
+                elif fld == 'archived':
+                    if val.lower() == 'true':
+                        set_archive_to = True
+                    else:
+                        set_archive_to = False
                 else:
                     if data[fld] != val:
                         edit_rec.update({fld: val})
+
+        if set_archive_to and data.active:
+            data.action_archive()
+        elif not set_archive_to and not data.active:
+            data.action_unarchive()
 
         if edit_rec:
             is_updated = data.sudo().write(edit_rec)
@@ -342,9 +386,10 @@ class bs_rest_api(http.Controller):
 
         created_id = request.env['crm.lead'].sudo().create(new_rec)
 
-        data = request.env['crm.lead'].sudo().with_context(active_test=False).search([('id', '=', created_id.id)])
-        if data and set_archive_to:
-            data.action_archive()
+        if set_archive_to:
+            data = request.env['crm.lead'].sudo().with_context(active_test=False).search([('id', '=', created_id.id)])
+            if data:
+                data.action_archive()
 
         output = get_json_ok_response(200, created_id.id)
         return json.dumps(output)
@@ -421,4 +466,3 @@ class bs_rest_api(http.Controller):
 
         json_data = json.dumps(data_list, default=date_utils.json_default)
         return Response(json_data, 200)
-

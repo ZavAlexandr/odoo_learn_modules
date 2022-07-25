@@ -77,5 +77,16 @@
             </field>
         </record>
 
+        <record id="bs_inherited_crm_crm_stage_form" model="ir.ui.view">
+            <field name="name">bs_inherited.crm.crm_stage_form</field>
+            <field name="model">crm.stage</field>
+            <field name="inherit_id" ref="crm.crm_stage_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='team_id']" position="after">
+                    <field name="export_to_bonsens"/>
+                </xpath>
+            </field>
+        </record>
+
     </data>
 </odoo>

@@ -1,6 +1,6 @@
 import json
 from datetime import datetime
-from odoo import http
+from odoo import http, Command
 from odoo.http import request, Response
 from odoo.tools import date_utils
 
@@ -147,7 +147,7 @@ class bs_rest_api(http.Controller):
 
         new_rec = {'company_type': 'company'}  # will be updated if exists in http query
         fields_list = ['name', 'company_type', 'email', 'phone', 'vat', 'comment', 'parent_id',
-                       'archived', 'main_contact_id']
+                       'archived', 'main_contact_id', 'tags']
         set_archive_to = False
 
         for fld in fields_list:
@@ -160,6 +160,9 @@ class bs_rest_api(http.Controller):
                         set_archive_to = True
                     else:
                         set_archive_to = False
+                elif fld == 'tags':
+                    tags = Command.set(val.split(','))
+                    new_rec.update({'category_id': [tags]})
                 else:
                     new_rec.update({fld: val})
 
@@ -188,7 +191,7 @@ class bs_rest_api(http.Controller):
 
         edit_rec = {}
         fields_list = ['name', 'company_type', 'email', 'phone', 'vat', 'comment', 'parent_id',
-                       'archived', 'main_contact_id']
+                       'archived', 'main_contact_id', 'tags']
         set_archive_to = False
 
         for fld in fields_list:
@@ -202,6 +205,20 @@ class bs_rest_api(http.Controller):
                         set_archive_to = True
                     else:
                         set_archive_to = False
+                elif fld == 'tags':
+                    current_tags_list = data.category_id.ids
+                    current_tags_list.sort()
+
+                    if val == '[]':
+                        new_tags_list = list()
+                    else:
+                        new_tags_list = val.split(',')
+                        new_tags_list = [int(item) for item in new_tags_list]
+                        new_tags_list.sort()
+
+                    if current_tags_list != new_tags_list:
+                        new_tags = Command.set(new_tags_list)
+                        edit_rec.update({'category_id': [new_tags]})
                 else:
                     if data[fld] != val:
                         edit_rec.update({fld: val})

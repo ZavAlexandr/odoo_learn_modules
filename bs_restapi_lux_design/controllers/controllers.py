@@ -76,6 +76,7 @@ def get_contact_data(records):
         data['tags'] = rec.category_id.ids
         data['main_contact_id'] = correct_field_data(rec.main_contact_id.id)
         data['archived'] = not rec.active
+        data['phone2'] = correct_field_data(rec.mobile)
 
         if has_leads_in_bonsens_stages:
             filtered_recs = leads_in_stages_for_bs.filtered(lambda l: l.partner_id.id == rec.id)
@@ -148,7 +149,7 @@ class bs_rest_api(http.Controller):
 
         new_rec = {'company_type': 'company'}  # will be updated if exists in http query
         fields_list = ['name', 'company_type', 'email', 'phone', 'vat', 'comment', 'parent_id',
-                       'archived', 'main_contact_id', 'tags']
+                       'archived', 'main_contact_id', 'tags', 'phone2']
         set_archive_to = False
 
         for fld in fields_list:
@@ -161,6 +162,8 @@ class bs_rest_api(http.Controller):
                         set_archive_to = True
                     else:
                         set_archive_to = False
+                elif fld == 'phone2':
+                    new_rec.update({'mobile': val})
                 elif fld == 'tags':
                     if val != '*':
                         tags = Command.set(val.split(','))
@@ -193,7 +196,7 @@ class bs_rest_api(http.Controller):
 
         edit_rec = {}
         fields_list = ['name', 'company_type', 'email', 'phone', 'vat', 'comment', 'parent_id',
-                       'archived', 'main_contact_id', 'tags']
+                       'archived', 'main_contact_id', 'tags', 'phone2']
         set_archive_to = False
 
         for fld in fields_list:
@@ -207,6 +210,9 @@ class bs_rest_api(http.Controller):
                         set_archive_to = True
                     else:
                         set_archive_to = False
+                elif fld == 'phone2':
+                    if data['mobile'] != val:
+                        edit_rec.update({'mobile': val})
                 elif fld == 'tags':
                     current_tags_list = data.category_id.ids
                     current_tags_list.sort()
